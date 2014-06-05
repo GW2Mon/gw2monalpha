@@ -1,0 +1,25 @@
+2013-10-30
+
+sqlite3ext.dll ist eine Funktions Extension für SQLite 3.8.1
+Bei größeren Änderungen der sqlite3.dll muss auch die ext neu Compiliert werden.
+
+Zum einbinden:
+Select load_extension('sqlite3ext.dll');
+
+Extensions können nur über die C-API oder mit einer Speziell Compilierten DLL geladen werden.
+
+Test:
+Select sqlite_version(); Muss "3.8.1 173" Liefern, dann ist es die Richtige DLL.
+
+
+Funktionen:
+
+Math: acos, asin, atan, atn2, atan2, acosh, asinh, atanh, difference,
+degrees, radians, cos, sin, tan, cot, cosh, sinh, tanh, coth, exp,
+log, log10, power, sign, sqrt, square, ceil, floor, pi.
+
+String: replicate, charindex, leftstr, rightstr, ltrim, rtrim, trim,
+replace, reverse, proper, padl, padr, padc, strfilter.
+
+Aggregate: stdev, variance, mode, median, lower_quartile,
+upper_quartile.
