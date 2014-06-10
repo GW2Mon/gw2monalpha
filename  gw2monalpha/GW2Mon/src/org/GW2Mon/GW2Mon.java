@@ -1,4 +1,5 @@
 package org.GW2Mon;
+
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,9 +30,8 @@ import org.GW2Mon.model.Options;
 import org.GW2Mon.model.Splashscreen;
 import org.GW2Mon.pojo.Account;
 import org.GW2Mon.pojo.Charakter;
-import org.ini4j.Profile.Section;
-//import org.apache.log4j.Logger;
 import org.ini4j.Wini;
+//import org.apache.log4j.Logger;
 
 /**
  * @author Gw2Mon[at]gmail.com
@@ -40,8 +40,8 @@ import org.ini4j.Wini;
 public class GW2Mon {
 	private static GW2Mon instance = null;
 	public static String lang = "DE";
-	public static String CorePath,AccPath,CharPath;
-//	private static Logger logger = Logger.getLogger(GW2Mon.class);
+	public static String CorePath, AccPath, CharPath, CoreCfg, AccCfg, CharCfg;
+	// private static Logger logger = Logger.getLogger(GW2Mon.class);
 	private Account account = null;
 	private Charakter charakter = null;
 	private JFrame frmGwmon;
@@ -56,11 +56,31 @@ public class GW2Mon {
 			@Override
 			public void run() {
 				try {
-					Wini ini = new Wini(new File(System.getProperty("user.dir")+"/src/GW2Mon.ini"));
-					lang=ini.get("","Language");
-					CorePath=System.getProperty("user.dir")+ini.get("Database","CoreData");
-					AccPath=System.getProperty("user.dir")+ini.get("Database","Account");
-					CharPath=System.getProperty("user.dir")+ini.get("Database", "Character");
+					Wini ini = new Wini(new File(System.getProperty("user.dir")
+							+ "/src/GW2Mon.ini"));
+					try {
+						lang = System.getProperty("user.dir")
+								+ ini.get("config", "Language");
+					} catch (Exception e) {
+						lang = "DE";
+						e.printStackTrace();
+					}
+					try {
+						CoreCfg = System.getProperty("user.dir")
+								+ ini.get("config", "CoreCfg");
+					} catch (Exception e) {
+
+					}
+					AccCfg = System.getProperty("user.dir")
+							+ ini.get("config", "AccCfg");
+					CharCfg = System.getProperty("user.dir")
+							+ ini.get("config", "CharCfg");
+					CorePath = System.getProperty("user.dir")
+							+ ini.get("Database", "CoreData");
+					AccPath = System.getProperty("user.dir")
+							+ ini.get("Database", "Account");
+					CharPath = System.getProperty("user.dir")
+							+ ini.get("Database", "Character");
 					Splashscreen splash = new Splashscreen();
 					splash.setModal(true);
 					UIManager.setLookAndFeel(UIManager
@@ -138,7 +158,7 @@ public class GW2Mon {
 		mntmSkillplaner.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 			}
 		});
 		mnTools.add(mntmSkillplaner);
@@ -147,7 +167,7 @@ public class GW2Mon {
 		mntmRessourcencalc.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 			}
 		});
 		mnTools.add(mntmRessourcencalc);
@@ -162,7 +182,7 @@ public class GW2Mon {
 				new About().setVisible(true);
 			}
 		});
-		
+
 		JMenuItem mntmOptions = new JMenuItem("Optionen");
 		mntmOptions.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -195,7 +215,7 @@ public class GW2Mon {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				charakter= function.lCharakterClicked(CharList);
+				charakter = function.lCharakterClicked(CharList);
 			}
 		});
 
@@ -204,7 +224,7 @@ public class GW2Mon {
 			public void stateChanged(ChangeEvent arg0) {
 			}
 		});
-		
+
 		frmGwmon.addWindowListener(new WindowListener() {
 			@Override
 			public void windowClosed(WindowEvent arg0) {
@@ -235,16 +255,16 @@ public class GW2Mon {
 			@Override
 			public void windowOpened(WindowEvent arg0) {
 				final DefaultListModel<String> AccList = new DefaultListModel<String>();
-				function.WindowOpened(AccList,CharList);
-				
+				function.WindowOpened(AccList, CharList);
+
 				JList<String> lAccounts = new JList<String>(AccList);
 
 				lAccounts.setBounds(10, 11, 125, 390);
-				
+
 				lAccounts.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent arg0) {
-						account= function.lAccountClicked(AccList);
+						account = function.lAccountClicked(AccList);
 					}
 				});
 
