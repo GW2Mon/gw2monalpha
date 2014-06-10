@@ -36,7 +36,7 @@ public class DB {
 	 */
 	public DB(String configuration) {
 		config.configure(configuration);
-		config.setProperty("", "");
+		config.setProperty("Database", GW2Mon.AccPath);
 		serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
 				config.getProperties()).build();
 
