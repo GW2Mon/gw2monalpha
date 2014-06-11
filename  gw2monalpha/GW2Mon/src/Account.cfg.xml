@@ -32,6 +32,7 @@
 
         <!-- Database connection settings -->
         <property name="connection.driver_class">org.sqlite.JDBC</property>
+        <property name="connection.database">\Data\Acc.db</property>
         <property name="connection.username"/>
         <property name="connection.password"/>
 

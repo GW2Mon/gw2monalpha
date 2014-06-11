@@ -2,6 +2,7 @@ package org.GW2Mon.dao;
 
 import java.util.ArrayList;
 
+import org.GW2Mon.GW2Mon;
 import org.GW2Mon.model.DB;
 import org.GW2Mon.pojo.Achievment;
 import org.GW2Mon.pojo.Charakter;
@@ -13,7 +14,7 @@ public class Charakter_has_AchievmentDao {
 	@SuppressWarnings("unchecked")
 	public ArrayList<Charakter_has_achievment> getCharakter_has_Achievments() {
 		ArrayList<Charakter_has_achievment> arrayList = null;
-		DB db = new DB("Charakter");
+		DB db = new DB(GW2Mon.CharCfg,GW2Mon.CharPath);
 		arrayList = (ArrayList<Charakter_has_achievment>) db.session
 				.createQuery("from " + Charakter_has_achievment.class).list();
 		return arrayList;
@@ -22,7 +23,7 @@ public class Charakter_has_AchievmentDao {
 	public Charakter_has_achievment getCharkter_has_Achievment(Charakter Char,
 			Achievment Achiev) {
 		Charakter_has_achievment Char_has_Achiev = null;
-		DB db = new DB("Charakter");
+		DB db = new DB(GW2Mon.CharCfg,GW2Mon.CharPath);
 		Char_has_Achiev = (Charakter_has_achievment) db.session
 				.createQuery("from " + Charakter_has_achievment.class
 						+ " where Charakter=" + Char.getId()
@@ -34,7 +35,7 @@ public class Charakter_has_AchievmentDao {
 	public ArrayList<Charakter_has_achievment> getCharakter_has_achievments(
 			Object Param) {
 		ArrayList<Charakter_has_achievment> arrayList = null;
-		DB db = new DB("Charakter");
+		DB db = new DB(GW2Mon.CharCfg,GW2Mon.CharPath);
 		if (Param.getClass() == Charakter.class)
 			arrayList = (ArrayList<Charakter_has_achievment>) db.session
 					.createQuery(
@@ -51,7 +52,7 @@ public class Charakter_has_AchievmentDao {
 	}
 	
 	public void setCharakter_has_Achievment(Charakter_has_achievment Char_has_Achiev){
-		DB db = new DB("Charakter");
+		DB db = new DB(GW2Mon.CharCfg,GW2Mon.CharPath);
 		Transaction trans = db.session.beginTransaction();
 		try {
 			db.session.saveOrUpdate(Char_has_Achiev);
@@ -63,7 +64,7 @@ public class Charakter_has_AchievmentDao {
 	}
 	
 	public void setCharakter_has_Achievments(ArrayList<Charakter_has_achievment> arrayList){
-		DB db = new DB("Charakter");
+		DB db = new DB(GW2Mon.CharCfg,GW2Mon.CharPath);
 		Transaction trans = db.session.beginTransaction();
 		try {
 			for (Charakter_has_achievment Char_has_Achiev : arrayList)
