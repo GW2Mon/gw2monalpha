@@ -2,6 +2,7 @@ package org.GW2Mon.dao;
 
 import java.util.ArrayList;
 
+import org.GW2Mon.GW2Mon;
 import org.GW2Mon.model.DB;
 import org.GW2Mon.pojo.Account;
 import org.GW2Mon.pojo.Charakter;
@@ -21,7 +22,7 @@ public class CharakterDao {
 	 */
 	public Charakter getCharakter(Object Char) {
 		Charakter charakter = null;
-		DB db = new DB("Charakter");
+		DB db = new DB(GW2Mon.CharCfg,GW2Mon.CharPath);
 		if (Char.getClass() == Integer.class)
 			charakter = (Charakter) db.session.get(Charakter.class,(Integer) Char);
 		else if (Char.getClass() == String.class)
@@ -37,7 +38,7 @@ public class CharakterDao {
 	@SuppressWarnings("unchecked")
 	public ArrayList<Charakter> getCharakters() {
 		ArrayList<Charakter> arrayList = null;
-		DB db = new DB("Charakter");
+		DB db = new DB(GW2Mon.CharCfg,GW2Mon.CharPath);
 		Transaction trans = db.session.beginTransaction();
 		arrayList = (ArrayList<Charakter>) db.session.createQuery(
 				"from " + Charakter.class.getSimpleName()).list();
@@ -53,7 +54,7 @@ public class CharakterDao {
 	@SuppressWarnings("unchecked")
 	public ArrayList<Charakter> getCharakters(Account Acc) {
 		ArrayList<Charakter> arrayList = null;
-		DB db = new DB("Charakter");
+		DB db = new DB(GW2Mon.CharCfg,GW2Mon.CharPath);
 		arrayList = (ArrayList<Charakter>) db.session.createQuery(
 				"from " + Charakter.class.getSimpleName() + " where Account=" + Acc.getId())
 				.list();
@@ -66,7 +67,7 @@ public class CharakterDao {
 	 * @param Char
 	 */
 	public void setCharakter(Object Char) {
-		DB db = new DB("Charakter");
+		DB db = new DB(GW2Mon.CharCfg,GW2Mon.CharPath);
 		Transaction trans = db.session.beginTransaction();
 		try {
 			if (Char.getClass() == Charakter.class)
@@ -85,7 +86,7 @@ public class CharakterDao {
 	 * @param arrayList
 	 */
 	public void setCharakters(ArrayList<Charakter> arrayList) {
-		DB db = new DB("Charakter");
+		DB db = new DB(GW2Mon.CharCfg,GW2Mon.CharPath);
 		Transaction trans = db.session.beginTransaction();
 		try {
 			for (Charakter Char : arrayList) {

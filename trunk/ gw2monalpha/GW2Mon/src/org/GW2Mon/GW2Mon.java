@@ -7,7 +7,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.io.File;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
@@ -30,7 +29,7 @@ import org.GW2Mon.model.Options;
 import org.GW2Mon.model.Splashscreen;
 import org.GW2Mon.pojo.Account;
 import org.GW2Mon.pojo.Charakter;
-import org.ini4j.Wini;
+
 //import org.apache.log4j.Logger;
 
 /**
@@ -42,11 +41,13 @@ public class GW2Mon {
 	public static String lang = "DE";
 	public static String CorePath, AccPath, CharPath, CoreCfg, AccCfg, CharCfg;
 	// private static Logger logger = Logger.getLogger(GW2Mon.class);
+	@SuppressWarnings("unused")
 	private Account account = null;
+	@SuppressWarnings("unused")
 	private Charakter charakter = null;
 	private JFrame frmGwmon;
 	private JMenuBar menuBar;
-	private GW2MonFunction function = new GW2MonFunction();
+	private static GW2MonFunction function = new GW2MonFunction();
 
 	/**
 	 * Launch the application.
@@ -55,32 +56,8 @@ public class GW2Mon {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				try {
-					Wini ini = new Wini(new File(System.getProperty("user.dir")
-							+ "/src/GW2Mon.ini"));
-					try {
-						lang = System.getProperty("user.dir")
-								+ ini.get("config", "Language");
-					} catch (Exception e) {
-						lang = "DE";
-						e.printStackTrace();
-					}
-					try {
-						CoreCfg = System.getProperty("user.dir")
-								+ ini.get("config", "CoreCfg");
-					} catch (Exception e) {
-
-					}
-					AccCfg = System.getProperty("user.dir")
-							+ ini.get("config", "AccCfg");
-					CharCfg = System.getProperty("user.dir")
-							+ ini.get("config", "CharCfg");
-					CorePath = System.getProperty("user.dir")
-							+ ini.get("Database", "CoreData");
-					AccPath = System.getProperty("user.dir")
-							+ ini.get("Database", "Account");
-					CharPath = System.getProperty("user.dir")
-							+ ini.get("Database", "Character");
+				function.iniLoad();
+				try{
 					Splashscreen splash = new Splashscreen();
 					splash.setModal(true);
 					UIManager.setLookAndFeel(UIManager

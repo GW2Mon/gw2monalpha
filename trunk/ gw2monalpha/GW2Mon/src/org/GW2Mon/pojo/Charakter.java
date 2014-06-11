@@ -3,7 +3,9 @@ package org.GW2Mon.pojo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 public class Charakter {
@@ -35,7 +37,28 @@ public class Charakter {
 		this.setRace(race);
 		this.setProfession(profession);
 	}
+	
+	public Charakter(){}
 
+	@Id
+	public int getId() {
+		return this.Id;
+	}
+
+	public void setId(int id) {
+		this.Id = id;
+	}
+
+	@ManyToOne(targetEntity=Account.class)
+	@JoinColumn(name="Account")
+	public Account getAccount() {
+		return this.Account;
+	}
+
+	public void setAccount(Account account) {
+		this.Account = account;
+	}
+	
 	public void setName(String Name) {
 		this.Name = Name;
 	}
@@ -53,29 +76,12 @@ public class Charakter {
 		return this.Image;
 	}
 
-	public void setId(int id) {
-		this.Id = id;
-	}
-
-	@Id
-	public int getId() {
-		return this.Id;
-	}
-
-	public void setAccount(Account account) {
-		this.Account = account;
-	}
-
-	@ManyToOne(targetEntity=Account.class)
-	public Account getAccount() {
-		return this.Account;
-	}
-
 	public void setGender(Gender gender) {
 		this.Gender = gender;
 	}
 
 	@ManyToOne(targetEntity=Gender.class)
+	@JoinColumn(name="Gender")
 	public Gender getGender() {
 		return this.Gender;
 	}
@@ -98,6 +104,7 @@ public class Charakter {
 	}
 
 	@ManyToOne(targetEntity=Profession.class)
+	@JoinColumn(name="Profession")
 	public Profession getProfession() {
 		return Profession;
 	}
@@ -115,6 +122,7 @@ public class Charakter {
 	}
 
 	@ManyToOne(targetEntity=CraftingDiscipline.class)
+	@JoinColumn(name="CraftDisc2")
 	public CraftingDiscipline getCraftDisc2() {
 		return CraftDisc2;
 	}
@@ -124,6 +132,7 @@ public class Charakter {
 	}
 
 	@ManyToOne(targetEntity=Race.class)
+	@JoinColumn(name="Race")
 	public Race getRace() {
 		return Race;
 	}
@@ -133,6 +142,7 @@ public class Charakter {
 	}
 
 	@ManyToOne(targetEntity=CraftingDiscipline.class)
+	@JoinColumn(name="CraftDisc1")
 	public CraftingDiscipline getCraftDisc1() {
 		return CraftDisc1;
 	}

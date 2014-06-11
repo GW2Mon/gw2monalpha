@@ -1,5 +1,7 @@
 package org.GW2Mon.model;
 
+import java.io.File;
+
 import org.GW2Mon.GW2Mon;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -22,7 +24,7 @@ public class DB {
 	 * standard Constructor
 	 */
 	public DB() {
-		config.configure(GW2Mon.CorePath);
+		config.configure(new File(GW2Mon.CorePath));
 		serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
 				config.getProperties()).build();
 		session = factory.getCurrentSession();
@@ -34,9 +36,12 @@ public class DB {
 	 * 
 	 * @param configuration
 	 */
-	public DB(String configuration) {
-		config.configure(configuration);
-		config.setProperty("Database", GW2Mon.AccPath);
+	public DB(String configuration, String db) {
+		File file = new File(db);
+		if (file.exists() && file.canWrite()) {
+			config.setProperty("hibernate.connection.url", "jdbc:sqlite:"+file.getAbsolutePath());
+		}
+		config.configure(new File(configuration));
 		serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
 				config.getProperties()).build();
 

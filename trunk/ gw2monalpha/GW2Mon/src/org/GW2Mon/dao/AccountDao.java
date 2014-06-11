@@ -17,7 +17,7 @@ public class AccountDao {
 	 */
 	public Account getAccount(Object Acc) {
 		Account account = null;
-		DB db = new DB(GW2Mon.AccCfg);
+		DB db = new DB(GW2Mon.AccCfg,GW2Mon.AccPath);
 		if (Acc.getClass() == Integer.class)
 			account = (Account) db.session.get(Account.class.getSimpleName(), (Integer) Acc);
 		else
@@ -35,7 +35,7 @@ public class AccountDao {
 	@SuppressWarnings("unchecked")
 	public ArrayList<Account> getAccounts() {
 		ArrayList<Account> arrayList = null;
-		DB db = new DB(GW2Mon.AccCfg);
+		DB db = new DB(GW2Mon.AccCfg,GW2Mon.AccPath);
 		Transaction trans =db.session.beginTransaction();
 		arrayList = (ArrayList<Account>) db.session.createSQLQuery(
 				"Select * from "+Account.class.getSimpleName()).list();
@@ -48,7 +48,7 @@ public class AccountDao {
 	 * @param acc
 	 */
 	public void setAccount(Account acc) {
-		DB db = new DB(GW2Mon.AccCfg);
+		DB db = new DB(GW2Mon.AccCfg,GW2Mon.AccPath);
 		Transaction trans = db.session.beginTransaction();
 		try {
 			db.session.saveOrUpdate(acc);
@@ -64,7 +64,7 @@ public class AccountDao {
 	 * @param arrayList
 	 */
 	public void setAccounts(ArrayList<Account> arrayList) {
-		DB db = new DB(GW2Mon.AccCfg);
+		DB db = new DB(GW2Mon.AccCfg,GW2Mon.AccPath);
 		Transaction trans = db.session.beginTransaction();
 		try {
 			for (Account acc : arrayList) {

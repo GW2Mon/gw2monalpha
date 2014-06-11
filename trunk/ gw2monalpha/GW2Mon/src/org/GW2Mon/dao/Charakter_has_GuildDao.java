@@ -2,6 +2,7 @@ package org.GW2Mon.dao;
 
 import java.util.ArrayList;
 
+import org.GW2Mon.GW2Mon;
 import org.GW2Mon.model.DB;
 import org.GW2Mon.pojo.Charakter_has_guild;
 import org.GW2Mon.pojo.Charakter;
@@ -18,7 +19,7 @@ public class Charakter_has_GuildDao {
 	@SuppressWarnings("unchecked")
 	public ArrayList<Charakter_has_guild> getCharakter_has_guilds(){
 		ArrayList<Charakter_has_guild> arrayList=null;
-		DB db = new DB("Charakter");
+		DB db = new DB(GW2Mon.CharCfg,GW2Mon.CharPath);
 		arrayList=(ArrayList<Charakter_has_guild>) db.session.createQuery("from "+Charakter_has_guild.class).list();
 		return arrayList;
 	}
@@ -26,7 +27,7 @@ public class Charakter_has_GuildDao {
 	@SuppressWarnings("unchecked")
 	public ArrayList<Charakter_has_guild> getCharakter_has_guilds(Object Param){
 		ArrayList<Charakter_has_guild> arrayList=null;
-		DB db = new DB("Charakter");
+		DB db = new DB(GW2Mon.CharCfg,GW2Mon.CharPath);
 		if (Param.getClass()==Character.class)
 			arrayList=(ArrayList<Charakter_has_guild>) db.session.createQuery("from "+Charakter_has_guild.class+"where Charakter="+((Charakter) Param).getId()).list();
 		else if(Param.getClass()==Guild.class)
@@ -35,7 +36,7 @@ public class Charakter_has_GuildDao {
 	}
 	
 	public void setCharakter_has_Guilds(ArrayList<Charakter_has_guild>arrayList){
-		DB db = new DB("Charakter");
+		DB db = new DB(GW2Mon.CharCfg,GW2Mon.CharPath);
 		Transaction trans = db.session.beginTransaction();
 		try {
 			for (Charakter_has_guild Char_has_guild : arrayList)
@@ -48,7 +49,7 @@ public class Charakter_has_GuildDao {
 	}
 	
 	public void setCharakter_has_Guild(Charakter_has_guild Char_has_Guild){
-		DB db = new DB("Charakter");
+		DB db = new DB(GW2Mon.CharCfg,GW2Mon.CharPath);
 		Transaction trans = db.session.beginTransaction();
 		try {
 			db.session.saveOrUpdate(Char_has_Guild);
