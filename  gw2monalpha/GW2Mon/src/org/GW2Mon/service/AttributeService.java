@@ -33,7 +33,8 @@ public class AttributeService {
 	}
 	
 	/**
-	 * Loading Attribute with Id or / TODO
+	 * Loading Attribute with Id or NameEng param
+	 * corresponding on Type of param.
 	 * @param param
 	 * @return Attribute
 	 */
