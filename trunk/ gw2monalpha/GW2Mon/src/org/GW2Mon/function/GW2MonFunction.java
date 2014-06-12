@@ -10,6 +10,7 @@ import org.GW2Mon.pojo.Account;
 import org.GW2Mon.pojo.Charakter;
 import org.GW2Mon.service.AccountService;
 import org.GW2Mon.service.CharacterService;
+import org.apache.log4j.Logger;
 import org.ini4j.InvalidFileFormatException;
 import org.ini4j.Wini;
 
@@ -17,28 +18,47 @@ public class GW2MonFunction {
 
 	private AccountService accService = new AccountService();
 	private CharacterService charService = new CharacterService();
+	private static Logger logger = Logger.getLogger(GW2MonFunction.class);
 
+	/**
+	 * Operations done by window.Closed
+	 */
 	public void WindowClosed() {
 		accService.saveAccounts();
 		charService.saveCharakters();
 	}
 
-	public void WindowOpened(DefaultListModel<String> Accounts,
-			DefaultListModel<String> Charakters) {
+	/**
+	 * Loading Accounts and Characters into DefaultListModels
+	 * 
+	 * @param Accounts
+	 * @param Charakters
+	 */
+	public void WindowOpened(DefaultListModel<String> lAccounts,
+			DefaultListModel<String> lCharakters) {
 		accService.loadAccounts();
 		charService.loadCharakters();
-		for (Account acc : accService.loadAccounts()) {
-			Accounts.addElement(acc.getName());
+		for (Account account : accService.loadAccounts()) {
+			lAccounts.addElement(account.getName());
+			logger.info("Accounts loaded.");
 		}
-		for (Charakter Char : charService.loadCharakters()) {
-			Charakters.addElement(Char.getName());
+		for (Charakter charakter : charService.loadCharakters()) {
+			lCharakters.addElement(charakter.getName());
+			logger.info("Charakters loaded.");
 		}
 	}
 
+	/**
+	 * Loading the Account account selected in DefaultListModel lAccounts
+	 * 
+	 * @param lAccounts
+	 *            : DefaultListModel
+	 * @return account : Account
+	 */
 	public Account lAccountClicked(DefaultListModel<String> lAccounts) {
-		Account acc = null;
-
-		return acc;
+		Account account = null;
+		
+		return account;
 	}
 
 	public Charakter lCharakterClicked(DefaultListModel<String> lCharakter) {
@@ -47,8 +67,13 @@ public class GW2MonFunction {
 		return Char;
 	}
 
+	/**
+	 * Loading the values from the GW2Mon.ini-File <br>
+	 * for hibernate-configurations and database paths. <br>
+	 * If paths in Ini false loading default.
+	 */
 	public void iniLoad() {
-		Wini ini=null;
+		Wini ini = null;
 		try {
 			File file = new File(System.getProperty("user.dir")
 					+ "/src/GW2Mon.ini");
@@ -58,19 +83,54 @@ public class GW2MonFunction {
 				GW2Mon.lang = System.getProperty("user.dir")
 						+ ini.get("config", "Language");
 
-				GW2Mon.CoreCfg = System.getProperty("user.dir")
-						+ ini.get("config", "CoreCfg");
+				file = new File(System.getProperty("user.dir")
+						+ ini.get("config", "CoreCfg"));
 
-				GW2Mon.AccCfg = (System.getProperty("user.dir") + ini.get("config",
-						"AccCfg"));
-				GW2Mon.CharCfg = System.getProperty("user.dir")
-						+ ini.get("config", "CharCfg");
-				GW2Mon.CorePath = System.getProperty("user.dir")
-						+ ini.get("Database", "CoreData");
-				GW2Mon.AccPath = System.getProperty("user.dir")
-						+ ini.get("Database", "Account");
-				GW2Mon.CharPath = System.getProperty("user.dir")
-						+ ini.get("Database", "Character");
+				if (file.exists() && file.canRead())
+					GW2Mon.CoreCfg = file;
+				else
+					GW2Mon.CoreCfg = new File(System.getProperty("user.dir")
+							+ "\\src\\hibernate.cfg.xml");
+
+				file = new File(System.getProperty("user.dir")
+						+ ini.get("config", "AccCfg"));
+				if (file.exists() && file.canRead())
+					GW2Mon.AccCfg = file;
+				else
+					GW2Mon.AccCfg = new File(System.getProperty("user.dir")
+							+ "\\src\\Account.cfg.xml");
+
+				file = new File(System.getProperty("user.dir")
+						+ ini.get("config", "CharCfg"));
+				if (file.exists() && file.canRead())
+					GW2Mon.CharCfg = file;
+				else
+					GW2Mon.CharCfg = new File(System.getProperty("user.dir")
+							+ "\\src\\Charakter.cfg.xml");
+
+				file = new File(System.getProperty("user.dir")
+						+ ini.get("Database", "CoreData"));
+				if (file.exists() && file.canRead() && file.canWrite())
+					GW2Mon.CorePath = file;
+				else
+					GW2Mon.CorePath = new File(System.getProperty("user.dir")
+							+ "\\Data\\GW2Mon.db");
+
+				file = new File(System.getProperty("user.dir")
+						+ ini.get("Database", "Account"));
+				if (file.exists() && file.canRead() && file.canWrite())
+					GW2Mon.AccPath = file;
+				else
+					GW2Mon.AccPath = new File(System.getProperty("user.dir")
+							+ "\\Data\\Acc.db");
+				
+				file=new File(System.getProperty("user.dir")
+						+ ini.get("Database", "Character"));
+				if (file.exists()&&file.canRead()&&file.canWrite())
+				GW2Mon.CharPath = file;
+				else
+					GW2Mon.CharPath=new File(System.getProperty("user.dir")
+						+ "\\Data\\Char.db");
 			}
 		} catch (InvalidFileFormatException e1) {
 			// TODO Auto-generated catch block
@@ -80,6 +140,11 @@ public class GW2MonFunction {
 			e1.printStackTrace();
 		}
 
+	}
+
+	public void mntmRessourcencalcClicked() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

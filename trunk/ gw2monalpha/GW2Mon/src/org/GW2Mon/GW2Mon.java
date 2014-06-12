@@ -7,6 +7,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.File;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
@@ -29,8 +30,7 @@ import org.GW2Mon.model.Options;
 import org.GW2Mon.model.Splashscreen;
 import org.GW2Mon.pojo.Account;
 import org.GW2Mon.pojo.Charakter;
-
-//import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 
 /**
  * @author Gw2Mon[at]gmail.com
@@ -39,8 +39,8 @@ import org.GW2Mon.pojo.Charakter;
 public class GW2Mon {
 	private static GW2Mon instance = null;
 	public static String lang = "DE";
-	public static String CorePath, AccPath, CharPath, CoreCfg, AccCfg, CharCfg;
-	// private static Logger logger = Logger.getLogger(GW2Mon.class);
+	public static File CorePath, AccPath, CharPath, CoreCfg, AccCfg, CharCfg=null;
+    private static Logger logger = Logger.getLogger(GW2Mon.class);
 	@SuppressWarnings("unused")
 	private Account account = null;
 	@SuppressWarnings("unused")
@@ -62,8 +62,7 @@ public class GW2Mon {
 					splash.setModal(true);
 					UIManager.setLookAndFeel(UIManager
 							.getSystemLookAndFeelClassName());
-					GW2Mon window = new GW2Mon();
-					window.frmGwmon.setVisible(true);
+					GW2Mon window = GW2Mon.getInstance();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -77,6 +76,7 @@ public class GW2Mon {
 	public GW2Mon() {
 		initialize();
 		instance = this;
+		frmGwmon.setVisible(true);
 	}
 
 	public static GW2Mon getInstance() {
@@ -114,7 +114,7 @@ public class GW2Mon {
 		mntmAccount.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				new Accountverwaltung().setVisible(true);
+				Accountverwaltung Accverw = Accountverwaltung.getInstance();
 			}
 		});
 		mnStammdaten.add(mntmAccount);
@@ -144,7 +144,7 @@ public class GW2Mon {
 		mntmRessourcencalc.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-
+				function.mntmRessourcencalcClicked();
 			}
 		});
 		mnTools.add(mntmRessourcencalc);
@@ -182,8 +182,20 @@ public class GW2Mon {
 		tpMain.addTab("Charaktere", null, pCharakters, null);
 		pCharakters.setLayout(null);
 
+		final DefaultListModel<String> AccList = new DefaultListModel<String>();
 		final DefaultListModel<String> CharList = new DefaultListModel<String>();
 
+		JList<String> lAccounts = new JList<String>(AccList);
+		lAccounts.setBounds(10, 11, 125, 390);
+		pAccounts.add(lAccounts);
+
+		lAccounts.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				account = function.lAccountClicked(AccList);
+			}
+		});
+		
 		JList<String> lCharakters = new JList<String>(CharList);
 		lCharakters.setBounds(10, 11, 128, 390);
 		pCharakters.add(lCharakters);
@@ -193,12 +205,6 @@ public class GW2Mon {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				charakter = function.lCharakterClicked(CharList);
-			}
-		});
-
-		tpMain.addChangeListener(new ChangeListener() {
-			@Override
-			public void stateChanged(ChangeEvent arg0) {
 			}
 		});
 
@@ -231,21 +237,8 @@ public class GW2Mon {
 
 			@Override
 			public void windowOpened(WindowEvent arg0) {
-				final DefaultListModel<String> AccList = new DefaultListModel<String>();
 				function.WindowOpened(AccList, CharList);
 
-				JList<String> lAccounts = new JList<String>(AccList);
-
-				lAccounts.setBounds(10, 11, 125, 390);
-
-				lAccounts.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent arg0) {
-						account = function.lAccountClicked(AccList);
-					}
-				});
-
-				pAccounts.add(lAccounts);
 			}
 		});
 	}

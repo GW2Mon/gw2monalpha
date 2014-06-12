@@ -63,6 +63,7 @@ public class Accountverwaltung extends JFrame {
 		});
 		init_Components();
 		instance = this;
+		this.setVisible(true);
 	}
 
 	/**

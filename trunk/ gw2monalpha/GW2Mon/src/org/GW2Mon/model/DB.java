@@ -22,26 +22,28 @@ public class DB {
 
 	/**
 	 * standard Constructor
+	 * loading Core-database with default configuration.
 	 */
 	public DB() {
-		config.configure(new File(GW2Mon.CorePath));
+		config.configure(GW2Mon.CorePath);
 		serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
 				config.getProperties()).build();
 		session = factory.getCurrentSession();
 	}
 
 	/**
-	 * Constructor with String parameter for <br>
-	 * other configuration for SessionFactory.
+	 * Constructor with parameter [configuration] for <br>
+	 * other configuration for SessionFactory <br>
+	 * and parameter [db] for other database-location.
 	 * 
-	 * @param configuration
+	 * @param configuration : File
+	 * @param db : File
 	 */
-	public DB(String configuration, String db) {
-		File file = new File(db);
-		if (file.exists() && file.canWrite()) {
-			config.setProperty("hibernate.connection.url", "jdbc:sqlite:"+file.getAbsolutePath());
+	public DB(File configuration, File db) {
+		if (db.exists() && db.canWrite()) {
+			config.setProperty("hibernate.connection.url", "jdbc:sqlite:"+db.getAbsolutePath());
 		}
-		config.configure(new File(configuration));
+		config.configure(configuration);
 		serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
 				config.getProperties()).build();
 
