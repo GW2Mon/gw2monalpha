@@ -22,7 +22,6 @@ public class ItemVzb2 {
 		this.setItemVzb1(ItemVzb1);
 	}
 
-	@Column(nullable=false)
 	@ManyToOne(targetEntity=ItemVzb.class)
 	public ItemVzb getItemVzb() {
 		return ItemVzb;
@@ -32,7 +31,6 @@ public class ItemVzb2 {
 		ItemVzb = itemVzb;
 	}
 
-	@Column(nullable=false)
 	@ManyToOne(targetEntity=ItemVzb1.class)
 	public ItemVzb1 getItemVzb1() {
 		return ItemVzb1;

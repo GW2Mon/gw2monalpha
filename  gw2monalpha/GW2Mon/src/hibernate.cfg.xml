@@ -56,8 +56,6 @@
 		<mapping class="org.GW2Mon.pojo.Attribute" />
 		<mapping class="org.GW2Mon.pojo.BoonCondition" />
 		<mapping class="org.GW2Mon.pojo.City" />
-		<mapping class="org.GW2Mon.pojo.CraftingDiscipline_has_ItemVzb2" />
-		<mapping class="org.GW2Mon.pojo.CraftingDiscipline_has_Recept" />
 		<mapping class="org.GW2Mon.pojo.CraftingDiscipline" />
 		<mapping class="org.GW2Mon.pojo.Gender" />
 		<mapping class="org.GW2Mon.pojo.Guild" />
@@ -78,7 +76,8 @@
 		<mapping class="org.GW2Mon.pojo.Treasury" />
 		<mapping class="org.GW2Mon.pojo.WeaponType" />
 		<mapping class="org.GW2Mon.pojo.Weightclass" />
-
+		<mapping class="org.GW2Mon.pojo.Account" />
+		<mapping class="org.GW2Mon.pojo.Account_has_achievment" />
     </session-factory>
 
 </hibernate-configuration>

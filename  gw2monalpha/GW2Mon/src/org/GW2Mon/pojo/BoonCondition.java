@@ -21,7 +21,6 @@ public class BoonCondition {
 		this.setWirkung(wirkung);
 	}
 
-	@Column(nullable=false)
 	@ManyToOne(targetEntity=Attribute.class)
 	public Attribute getAttribute() {
 		return Attribute;

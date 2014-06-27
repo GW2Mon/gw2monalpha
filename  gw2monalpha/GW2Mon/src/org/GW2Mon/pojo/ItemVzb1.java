@@ -19,7 +19,6 @@ public class ItemVzb1 {
 		this.setItemVzb(itemVzb);
 	}
 
-	@Column(nullable=false)
 	@ManyToOne(targetEntity=ItemVzb.class)
 	public org.GW2Mon.pojo.ItemVzb getItemVzb() {
 		return ItemVzb;
