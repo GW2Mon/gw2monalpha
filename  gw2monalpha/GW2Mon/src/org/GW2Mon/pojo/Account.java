@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
  * @version 0.0001
  */
 @Entity
-public class Account {
+public class Account extends Object{
 	private int Id, CountChar; 
 	private Treasury Treasury;
 	private String Name, EMail, PW, IgPW;
