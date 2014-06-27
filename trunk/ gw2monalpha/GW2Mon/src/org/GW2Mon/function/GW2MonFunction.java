@@ -2,6 +2,9 @@ package org.GW2Mon.function;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.DefaultListModel;
 
@@ -37,10 +40,10 @@ public class GW2MonFunction {
 	public void WindowOpened(DefaultListModel<String> lAccounts,
 			DefaultListModel<String> lCharakters) {
 		iniLoad();
-		accService.loadAccounts();
-		charService.loadCharakters();
-		for (Account account : accService.loadAccounts()) {
-			lAccounts.addElement(account.getName());
+		List<Account> result = accService.loadAccounts();
+		Iterator<Account> accounts = result.iterator();
+		while (accounts.hasNext()) {
+			lAccounts.addElement((String)accounts.next().getName());
 			logger.info("Accounts loaded.");
 		}
 		for (Charakter charakter : charService.loadCharakters()) {

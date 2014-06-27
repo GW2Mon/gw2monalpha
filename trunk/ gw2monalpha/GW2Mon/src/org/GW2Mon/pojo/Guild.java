@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Guild {
@@ -37,7 +39,7 @@ public class Guild {
 		MemberCount = memberCount;
 	}
 
-	@ManyToOne(targetEntity=Charakter.class)
+	@OneToOne(targetEntity=Charakter.class)
 	public Charakter getLeader() {
 		return Leader;
 	}

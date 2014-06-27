@@ -63,21 +63,19 @@
 		<mapping class="org.GW2Mon.pojo.ItemVzb" />
 		<mapping class="org.GW2Mon.pojo.ItemVzb1" />
 		<mapping class="org.GW2Mon.pojo.ItemVzb2" />
-		<mapping class="org.GW2Mon.pojo.Profession_has_Trait" />
-		<mapping class="org.GW2Mon.pojo.Profession_has_WeaponType" />
 		<mapping class="org.GW2Mon.pojo.Profession" />
 		<mapping class="org.GW2Mon.pojo.Race" />
 		<mapping class="org.GW2Mon.pojo.Rarity" />
 		<mapping class="org.GW2Mon.pojo.Recipe" />
 		<mapping class="org.GW2Mon.pojo.Skill" />
 		<mapping class="org.GW2Mon.pojo.Skilltype" />
-		<mapping class="org.GW2Mon.pojo.Trait_has_Attribute" />
 		<mapping class="org.GW2Mon.pojo.Trait" />
 		<mapping class="org.GW2Mon.pojo.Treasury" />
 		<mapping class="org.GW2Mon.pojo.WeaponType" />
 		<mapping class="org.GW2Mon.pojo.Weightclass" />
 		<mapping class="org.GW2Mon.pojo.Account" />
 		<mapping class="org.GW2Mon.pojo.Account_has_achievment" />
+		<mapping class="org.GW2Mon.pojo.Charakter" />
     </session-factory>
 
 </hibernate-configuration>
