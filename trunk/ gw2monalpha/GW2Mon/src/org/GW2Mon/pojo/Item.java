@@ -85,7 +85,6 @@ public class Item {
 		Id = id;
 	}
 
-	@Column(nullable = false)
 	@ManyToOne(targetEntity=ItemVzb.class)
 	public ItemVzb getItemVZB() {
 		return ItemVZB;
@@ -95,7 +94,6 @@ public class Item {
 		ItemVZB = itemVZB;
 	}
 
-	@Column(nullable = false)
 	@ManyToOne(targetEntity=ItemVzb1.class)
 	public ItemVzb1 getItemVZB1() {
 		return ItemVZB1;
@@ -105,7 +103,6 @@ public class Item {
 		ItemVZB1 = itemVZB1;
 	}
 
-	@Column(nullable = false)
 	@ManyToOne(targetEntity=ItemVzb2.class)
 	public ItemVzb2 getItemVZB2() {
 		return ItemVZB2;
@@ -115,7 +112,6 @@ public class Item {
 		ItemVZB2 = itemVZB2;
 	}
 
-	@Column(nullable = false)
 	@ManyToOne(targetEntity=Rarity.class)
 	public org.GW2Mon.pojo.Rarity getRarity() {
 		return Rarity;

@@ -50,7 +50,6 @@ public class Recipe {
 		Id = id;
 	}
 
-	@Column(nullable = false)
 	@ManyToOne(targetEntity=CraftingDiscipline.class)
 	public CraftingDiscipline getCraftDisc1() {
 		return CraftDisc1;
@@ -60,7 +59,6 @@ public class Recipe {
 		CraftDisc1 = craftDisc1;
 	}
 
-	@Column(nullable = false)
 	@ManyToOne(targetEntity=CraftingDiscipline.class)
 	public CraftingDiscipline getCraftDisc2() {
 		return CraftDisc2;
@@ -70,7 +68,6 @@ public class Recipe {
 		CraftDisc2 = craftDisc2;
 	}
 
-	@Column(nullable = false)
 	@ManyToOne(targetEntity=CraftingDiscipline.class)
 	public CraftingDiscipline getCraftDisc3() {
 		return CraftDisc3;
@@ -80,7 +77,6 @@ public class Recipe {
 		CraftDisc3 = craftDisc3;
 	}
 
-	@Column(nullable = false)
 	@ManyToOne(targetEntity=Item.class)
 	public Item getIngredient1Id() {
 		return Ingredient1Id;
@@ -117,7 +113,6 @@ public class Recipe {
 		Ingredient4Id = ingredient4Id2;
 	}
 
-	@Column(nullable = false)
 	@ManyToOne(targetEntity=Item.class)
 	public Item getItemId() {
 		return ItemId;
@@ -136,7 +131,6 @@ public class Recipe {
 		ApiId = apiId;
 	}
 
-	@Column(nullable = false)
 	@ManyToOne(targetEntity=Item.class)
 	public int getItemAmount() {
 		return ItemAmount;

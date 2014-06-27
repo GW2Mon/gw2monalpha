@@ -32,7 +32,6 @@ public class Skill {
 		Id = id;
 	}
 
-	@Column(nullable=false)
 	@ManyToOne(targetEntity=Skilltype.class)
 	public Skilltype getSkilltype() {
 		return Skilltype;
@@ -67,7 +66,6 @@ public class Skill {
 		Handling = handling;
 	}
 
-	@Column(nullable=false)
 	@ManyToOne(targetEntity=WeaponType.class)
 	public WeaponType getWeaponType() {
 		return WeaponType;

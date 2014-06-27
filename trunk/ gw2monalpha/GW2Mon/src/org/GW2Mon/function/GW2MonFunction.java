@@ -36,6 +36,7 @@ public class GW2MonFunction {
 	 */
 	public void WindowOpened(DefaultListModel<String> lAccounts,
 			DefaultListModel<String> lCharakters) {
+		iniLoad();
 		accService.loadAccounts();
 		charService.loadCharakters();
 		for (Account account : accService.loadAccounts()) {
@@ -80,93 +81,9 @@ public class GW2MonFunction {
 
 			if (file.exists() && file.canRead() && file.canWrite()) {
 				ini = new Wini(file);
-				GW2Mon.lang = System.getProperty("user.dir")
-						+ ini.get("config", "Language");
-
-				file = new File(System.getProperty("user.dir")
-						+ ini.get("config", "CoreCfg"));
-				if (file.exists() && file.canRead())
-					GW2Mon.CoreCfg = file;
-				else {
-					file = new File(System.getProperty("user.dir")
-							+ "\\src\\hibernate.cfg.xml");
-					if (file.exists() && file.canRead())
-						GW2Mon.CoreCfg = file;
-					else
-						System.out
-								.println("hibernate.cfg.xml not found! \n Please configure GW2Mon.ini.");
-				}
-
-				file = new File(System.getProperty("user.dir")
-						+ ini.get("config", "AccCfg"));
-				if (file.exists() && file.canRead())
-					GW2Mon.AccCfg = file;
-				else {
-					file = new File(System.getProperty("user.dir")
-							+ "\\src\\Account.cfg.xml");
-					if (file.exists() && file.canRead())
-						GW2Mon.AccCfg = file;
-					else
-						System.out
-								.println("Account.cfg.xml not found! \n Please configure GW2Mon.ini.");
-				}
-
-				file = new File(System.getProperty("user.dir")
-						+ ini.get("config", "CharCfg"));
-				if (file.exists() && file.canRead())
-					GW2Mon.CharCfg = file;
-				else {
-					file = new File(System.getProperty("user.dir")
-							+ "\\src\\Charakter.cfg.xml");
-					if (file.canRead() && file.exists())
-						GW2Mon.CharCfg = file;
-					else
-						System.out
-								.println("Charakter.cfg.xml not found! \n Please configure GW2Mon.ini.");
-				}
-
-				file = new File(System.getProperty("user.dir")
-						+ ini.get("Database", "CoreData"));
-				if (file.exists() && file.canRead() && file.canWrite())
-					GW2Mon.CorePath = file;
-				else {
-					file = new File(System.getProperty("user.dir")
-							+ "\\Data\\GW2Mon.db");
-					if (file.exists() && file.canRead() && file.canWrite())
-						GW2Mon.CorePath = file;
-					else
-						System.out
-								.println("GW2Mon.db not found! \n Please configure GW2Mon.ini.");
-				}
-
-				file = new File(System.getProperty("user.dir")
-						+ ini.get("Database", "Account"));
-				if (file.exists() && file.canRead() && file.canWrite())
-					GW2Mon.AccPath = file;
-				else {
-					file = new File(System.getProperty("user.dir")
-							+ "\\Data\\Acc.db");
-					if (file.canExecute() && file.canWrite() && file.canRead())
-						GW2Mon.AccPath = file;
-					else
-						System.out
-								.println("Acc.db not found! \n Please configure GW2Mon.ini.");
-				}
-
-				file = new File(System.getProperty("user.dir")
-						+ ini.get("Database", "Character"));
-				if (file.exists() && file.canRead() && file.canWrite())
-					GW2Mon.CharPath = file;
-				else {
-					file = new File(System.getProperty("user.dir")
-							+ "\\Data\\Char.db");
-					if (file.exists() && file.canRead() && file.canWrite())
-						GW2Mon.CharPath = file;
-					else
-						System.out.println("Char.db not found! \n Please configure GW2Mon.ini.");
-				}
+				iniLoad(ini);
 			} else
-				System.out.println();
+				System.out.println("Ini-File not found.");
 		} catch (InvalidFileFormatException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
