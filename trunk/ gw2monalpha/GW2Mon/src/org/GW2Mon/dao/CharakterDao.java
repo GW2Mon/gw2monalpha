@@ -55,9 +55,11 @@ public class CharakterDao {
 	public ArrayList<Charakter> getCharakters(Account Acc) {
 		ArrayList<Charakter> arrayList = null;
 		DB db = new DB(GW2Mon.CharCfg,GW2Mon.CharPath);
+		Transaction trans = db.session.beginTransaction();
 		arrayList = (ArrayList<Charakter>) db.session.createQuery(
 				"from " + Charakter.class.getSimpleName() + " where Account=" + Acc.getId())
 				.list();
+		trans.commit();
 		return arrayList;
 	}
 

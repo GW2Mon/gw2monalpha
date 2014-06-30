@@ -3,15 +3,17 @@ package org.GW2Mon.pojo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Profession {
 	private String NameGer, NameEng;
-	private int Id,Typ;
-	private Trait Trait1,Trait2,Trait3;
+	private int Id, Typ;
+	private Trait Trait1, Trait2, Trait3;
 
-	public Profession(int id, String nameGer, String nameEng,int typ,Trait trait1,Trait trait2, Trait trait3) {
+	public Profession(int id, String nameGer, String nameEng, int typ,
+			Trait trait1, Trait trait2, Trait trait3) {
 		this.setId(id);
 		this.setNameGer(nameGer);
 		this.setNameEng(nameEng);
@@ -19,6 +21,9 @@ public class Profession {
 		this.setTrait1(trait1);
 		this.setTrait2(trait2);
 		this.setTrait3(trait3);
+	}
+
+	public Profession() {
 	}
 
 	public String getNameEng() {
@@ -46,7 +51,8 @@ public class Profession {
 		Id = id;
 	}
 
-	@ManyToOne(targetEntity=Trait.class)
+	@ManyToOne(targetEntity = Trait.class)
+	@JoinColumn(name = "Trait2")
 	public Trait getTrait2() {
 		return Trait2;
 	}
@@ -55,7 +61,8 @@ public class Profession {
 		Trait2 = trait2;
 	}
 
-	@ManyToOne(targetEntity=Trait.class)
+	@ManyToOne(targetEntity = Trait.class)
+	@JoinColumn(name = "Trait1")
 	public Trait getTrait1() {
 		return Trait1;
 	}
@@ -64,7 +71,8 @@ public class Profession {
 		Trait1 = trait1;
 	}
 
-	@ManyToOne(targetEntity=Trait.class)
+	@ManyToOne(targetEntity = Trait.class)
+	@JoinColumn(name = "Trait3")
 	public Trait getTrait3() {
 		return Trait3;
 	}
@@ -73,7 +81,7 @@ public class Profession {
 		Trait3 = trait3;
 	}
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public int getTyp() {
 		return Typ;
 	}

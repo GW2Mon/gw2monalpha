@@ -15,6 +15,9 @@ public class Gender {
 		this.setNameEng(nameEng);
 	}
 
+	public Gender() {
+	}
+
 	@Id
 	public int getId() {
 		return this.Id;

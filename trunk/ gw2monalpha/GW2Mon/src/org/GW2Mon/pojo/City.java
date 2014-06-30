@@ -15,6 +15,9 @@ public class City {
 		this.setNameEng(nameEng);
 	}
 
+	public City() {
+	}
+
 	@Id
 	public int getId() {
 		return Id;

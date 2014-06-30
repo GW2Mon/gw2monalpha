@@ -2,21 +2,26 @@ package org.GW2Mon.pojo;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Race {
-	private String NameGer, NameEng,HintGer,HintEng;
+	private String NameGer, NameEng, HintGer, HintEng;
 	private int Id;
 	private City Capital;
 
-	public Race(int id, String nameGer, String nameEng,String hintGer,String hintEng, City capital) {
+	public Race(int id, String nameGer, String nameEng, String hintGer,
+			String hintEng, City capital) {
 		this.Id = id;
 		this.setNameGer(nameGer);
 		this.setNameEng(nameEng);
 		this.setHintGer(hintGer);
 		this.setHintEng(hintEng);
 		this.setCapital(capital);
+	}
+
+	public Race() {
 	}
 
 	public void setId(int Id) {
@@ -60,7 +65,8 @@ public class Race {
 		HintEng = hintEng;
 	}
 
-	@ManyToOne(targetEntity=City.class)
+	@ManyToOne(targetEntity = City.class)
+	@JoinColumn(name = "Capital")
 	public City getCapital() {
 		return Capital;
 	}

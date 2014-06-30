@@ -19,8 +19,6 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import org.GW2Mon.function.GW2MonFunction;
 import org.GW2Mon.model.About;
@@ -30,7 +28,6 @@ import org.GW2Mon.model.Options;
 import org.GW2Mon.model.Splashscreen;
 import org.GW2Mon.pojo.Account;
 import org.GW2Mon.pojo.Charakter;
-import org.apache.log4j.Logger;
 
 /**
  * @author Gw2Mon[at]gmail.com
@@ -39,8 +36,8 @@ import org.apache.log4j.Logger;
 public class GW2Mon {
 	private static GW2Mon instance = null;
 	public static String lang = "DE";
-	public static File CorePath, AccPath, CharPath, CoreCfg, AccCfg, CharCfg=null;
-    private static Logger logger = Logger.getLogger(GW2Mon.class);
+	public static File CorePath, AccPath, CharPath, CoreCfg, AccCfg,
+			CharCfg = null;
 	@SuppressWarnings("unused")
 	private Account account = null;
 	@SuppressWarnings("unused")
@@ -48,6 +45,7 @@ public class GW2Mon {
 	private JFrame frmGwmon;
 	private JMenuBar menuBar;
 	private static GW2MonFunction function = new GW2MonFunction();
+	public static DefaultListModel<String> CharList=null;
 
 	/**
 	 * Launch the application.
@@ -57,7 +55,7 @@ public class GW2Mon {
 			@Override
 			public void run() {
 				function.iniLoad();
-				try{
+				try {
 					Splashscreen splash = new Splashscreen();
 					splash.setModal(true);
 					UIManager.setLookAndFeel(UIManager
@@ -183,19 +181,22 @@ public class GW2Mon {
 		pCharakters.setLayout(null);
 
 		final DefaultListModel<String> AccList = new DefaultListModel<String>();
-		final DefaultListModel<String> CharList = new DefaultListModel<String>();
+		CharList = new DefaultListModel<String>();
 
-		JList<String> lAccounts = new JList<String>(AccList);
+		final JList<String> lAccounts = new JList<String>(AccList);
 		lAccounts.setBounds(10, 11, 125, 390);
 		pAccounts.add(lAccounts);
 
 		lAccounts.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				account = function.lAccountClicked(AccList);
+				if (arg0.getClickCount() > 1){
+					account = function.lAccountClicked(lAccounts);
+					tpMain.setSelectedComponent(pCharakters);
+				}
 			}
 		});
-		
+
 		JList<String> lCharakters = new JList<String>(CharList);
 		lCharakters.setBounds(10, 11, 128, 390);
 		pCharakters.add(lCharakters);

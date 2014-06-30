@@ -14,6 +14,9 @@ public class Trait {
 		this.setNameGer(nameGer);
 		this.setNameEng(nameEng);
 	}
+	
+	public Trait(){
+	}
 
 	@Id
 	public int getId() {

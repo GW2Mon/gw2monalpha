@@ -21,8 +21,9 @@ public class Charakter {
 	private String Name, Image;
 
 	public Charakter(int id, Account account, String name, int level,
-			CraftingDiscipline craftdisc1, CraftingDiscipline craftdisc2, int skillpoints, int supply,
-			Gender gender, Race race, Profession profession, String image) {
+			CraftingDiscipline craftdisc1, CraftingDiscipline craftdisc2,
+			int skillpoints, int supply, Gender gender, Race race,
+			Profession profession, String image) {
 		this.setId(id);
 		this.setAccount(account);
 		this.setName(name);
@@ -36,8 +37,9 @@ public class Charakter {
 		this.setRace(race);
 		this.setProfession(profession);
 	}
-	
-	public Charakter(){}
+
+	public Charakter() {
+	}
 
 	@Id
 	public int getId() {
@@ -48,8 +50,8 @@ public class Charakter {
 		this.Id = id;
 	}
 
-	@ManyToOne(targetEntity=Account.class)
-	@JoinColumn(name="Account")
+	@ManyToOne(targetEntity = Account.class)
+	@JoinColumn(name = "Account")
 	public Account getAccount() {
 		return this.Account;
 	}
@@ -57,12 +59,12 @@ public class Charakter {
 	public void setAccount(Account account) {
 		this.Account = account;
 	}
-	
+
 	public void setName(String Name) {
 		this.Name = Name;
 	}
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public String getName() {
 		return this.Name;
 	}
@@ -79,8 +81,8 @@ public class Charakter {
 		this.Gender = gender;
 	}
 
-	@ManyToOne(targetEntity=Gender.class)
-	@JoinColumn(name="Gender")
+	@ManyToOne(targetEntity = Gender.class)
+	@JoinColumn(name = "Gender")
 	public Gender getGender() {
 		return this.Gender;
 	}
@@ -89,7 +91,7 @@ public class Charakter {
 		this.Level = level;
 	}
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public int getLevel() {
 		return this.Level;
 	}
@@ -102,8 +104,8 @@ public class Charakter {
 		Skillpoints = skillpoints;
 	}
 
-	@ManyToOne(targetEntity=Profession.class)
-	@JoinColumn(name="Profession")
+	@ManyToOne(targetEntity = Profession.class)
+	@JoinColumn(name = "Profession")
 	public Profession getProfession() {
 		return Profession;
 	}
@@ -120,8 +122,8 @@ public class Charakter {
 		Supply = supply;
 	}
 
-	@ManyToOne(targetEntity=CraftingDiscipline.class)
-	@JoinColumn(name="CraftDisc2")
+	@ManyToOne(targetEntity = CraftingDiscipline.class)
+	@JoinColumn(name = "CraftDisc2")
 	public CraftingDiscipline getCraftDisc2() {
 		return CraftDisc2;
 	}
@@ -130,8 +132,8 @@ public class Charakter {
 		CraftDisc2 = craftDisc2;
 	}
 
-	@ManyToOne(targetEntity=Race.class)
-	@JoinColumn(name="Race")
+	@ManyToOne(targetEntity = Race.class)
+	@JoinColumn(name = "Race")
 	public Race getRace() {
 		return Race;
 	}
@@ -140,8 +142,8 @@ public class Charakter {
 		Race = race;
 	}
 
-	@ManyToOne(targetEntity=CraftingDiscipline.class)
-	@JoinColumn(name="CraftDisc1")
+	@ManyToOne(targetEntity = CraftingDiscipline.class)
+	@JoinColumn(name = "CraftDisc1")
 	public CraftingDiscipline getCraftDisc1() {
 		return CraftDisc1;
 	}
