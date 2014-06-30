@@ -3,15 +3,16 @@ package org.GW2Mon.pojo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 /**
  * @author GW2Mon[at]gmail.com
  * @version 0.0001
  */
 @Entity
-public class Account extends Object{
-	private int Id, CountChar; 
+public class Account extends Object {
+	private int Id, CountChar;
 	private Treasury Treasury;
 	private String Name, EMail, PW, IgPW;
 
@@ -34,6 +35,9 @@ public class Account extends Object{
 		this.setPW(pw);
 		this.setIgPW(igpw);
 		this.setTreasury(treasury);
+	}
+
+	public Account() {
 	}
 
 	/**
@@ -73,7 +77,7 @@ public class Account extends Object{
 	 * @category getter
 	 * @return Name
 	 */
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public String getName() {
 		return Name;
 	}
@@ -90,7 +94,8 @@ public class Account extends Object{
 	 * @category getter
 	 * @return Treasury
 	 */
-	@ManyToOne(targetEntity=Treasury.class)
+	@OneToOne(targetEntity = Treasury.class)
+	@JoinColumn(name="Treasury")
 	public Treasury getTreasury() {
 		return Treasury;
 	}
@@ -123,7 +128,7 @@ public class Account extends Object{
 	 * @category getter
 	 * @return Email
 	 */
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public String getEMail() {
 		return EMail;
 	}

@@ -9,11 +9,15 @@ public class CraftingDiscipline {
 	private int Id;
 	private String NameGer, NameEng, Image;
 
-	public CraftingDiscipline(int id, String nameGer, String nameEng,String image) {
+	public CraftingDiscipline(int id, String nameGer, String nameEng,
+			String image) {
 		this.setId(id);
 		this.setNameGer(nameGer);
 		this.setNameEng(nameEng);
 		this.setImage(image);
+	}
+
+	public CraftingDiscipline() {
 	}
 
 	@Id

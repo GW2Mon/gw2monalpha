@@ -5,25 +5,24 @@ import javax.persistence.Id;
 
 @Entity
 public class Treasury {
-	private int Id, Coin, Karma, Glory, BadgeOfHonor, Laurel, FractalRelic,
-			GuildCommendation, AscalonianTier, SealOfBeetletun, DeadlyBloom,
+	private int Id, Coin, Karma, BadgeOfHonor, Laurel, FractalRelic,
+			GuildCommendation, AscalonianTear, SealOfBeetletun, DeadlyBloom,
 			ManifestoOfTheMoletariate, FlameLegionCharrCarving, SymbolOfKoda,
 			KnowledgeCrystal, ShardOfZhaitan;
 
-	public Treasury(int id, int coin, int karma, int glory, int badgeOfHonor,
-			int laurel, int fractalRelic, int guildCommendation,
-			int ascalonianTier, int sealOfBeetletun, int deadlyBloom,
+	public Treasury(int id, int coin, int karma, int badgeOfHonor, int laurel,
+			int fractalRelic, int guildCommendation, int ascalonianTear,
+			int sealOfBeetletun, int deadlyBloom,
 			int manifestoOfTheMoletariate, int flameLegionCharrCarving,
 			int symbolOfKoda, int knowledgeCrystal, int shardOfZhaitan) {
 		this.setId(id);
 		this.setCoin(coin);
 		this.setKarma(karma);
-		this.setGlory(glory);
 		this.setBadgeOfHonor(badgeOfHonor);
 		this.setLaurel(laurel);
 		this.setFractalRelic(fractalRelic);
 		this.setGuildCommendation(guildCommendation);
-		this.setAscalonianTier(ascalonianTier);
+		this.setAscalonianTear(ascalonianTear);
 		this.setSealOfBeetletun(sealOfBeetletun);
 		this.setDeadlyBloom(deadlyBloom);
 		this.setManifestoOfTheMoletariate(manifestoOfTheMoletariate);
@@ -31,6 +30,9 @@ public class Treasury {
 		this.setSymbolOfKoda(symbolOfKoda);
 		this.setKnowledgeCrystal(knowledgeCrystal);
 		this.setShardOfZhaitan(shardOfZhaitan);
+	}
+
+	public Treasury() {
 	}
 
 	public int getKarma() {
@@ -82,14 +84,6 @@ public class Treasury {
 		Id = id;
 	}
 
-	public int getGlory() {
-		return Glory;
-	}
-
-	public void setGlory(int glory) {
-		Glory = glory;
-	}
-
 	public int getGuildCommendation() {
 		return GuildCommendation;
 	}
@@ -98,12 +92,12 @@ public class Treasury {
 		GuildCommendation = guildCommendation;
 	}
 
-	public int getAscalonianTier() {
-		return AscalonianTier;
+	public int getAscalonianTear() {
+		return AscalonianTear;
 	}
 
-	public void setAscalonianTier(int ascalonianTier) {
-		AscalonianTier = ascalonianTier;
+	public void setAscalonianTear(int ascalonianTear) {
+		AscalonianTear = ascalonianTear;
 	}
 
 	public int getSealOfBeetletun() {
