@@ -60,7 +60,7 @@ public class CharakterDao {
 		DB db = new DB(GW2Mon.CharCfg, GW2Mon.CharPath);
 		Transaction trans = db.session.beginTransaction();
 		arrayList = (ArrayList<Charakter>) db.session.createQuery(
-				"from " + Charakter.class.getSimpleName() + " ch inner join "
+				"from " + Charakter.class.getSimpleName() + " ch join fetch ch."
 						+ Account.class.getSimpleName()
 						+ " ac where ac.Id=" + Acc.getId())
 				.list();
