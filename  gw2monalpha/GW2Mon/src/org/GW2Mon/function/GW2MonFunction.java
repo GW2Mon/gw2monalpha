@@ -3,7 +3,6 @@ package org.GW2Mon.function;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
@@ -40,14 +39,14 @@ public class GW2MonFunction {
 	public void WindowOpened(DefaultListModel<String> lAccounts,
 			DefaultListModel<String> lCharakters) {
 		iniLoad();
-		List<Account> result = accService.loadAccounts();
-		Iterator<Account> accounts = result.iterator();
+		Iterator<Account> accounts = accService.loadAccounts().iterator();
 		while (accounts.hasNext()) {
 			lAccounts.addElement(accounts.next().getName());
 			logger.info("Accounts loaded.");
 		}
-		for (Charakter charakter : charService.loadCharakters()) {
-			lCharakters.addElement(charakter.getName());
+		Iterator<Charakter> charakters = charService.loadCharakters().iterator();
+		while (charakters.hasNext()){
+			lCharakters.addElement(charakters.next().getName());
 			logger.info("Charakters loaded.");
 		}
 	}
@@ -62,8 +61,7 @@ public class GW2MonFunction {
 	public Account lAccountClicked(JList<String> lAccounts) {
 		Account account = null;
 		account = accService.loadAccount(lAccounts.getSelectedIndex() + 1);
-		List<Charakter> result = charService.loadCharakters(account);
-		Iterator<Charakter> charakters = result.iterator();
+		Iterator<Charakter> charakters = charService.loadCharakters(account).iterator();
 		while (charakters.hasNext()) {
 			GW2Mon.CharList.addElement(charakters.next().getName());
 		}

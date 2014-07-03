@@ -61,8 +61,7 @@ public class CharakterDao {
 		Transaction trans = db.session.beginTransaction();
 		arrayList = (ArrayList<Charakter>) db.session.createQuery(
 				"from " + Charakter.class.getSimpleName()
-				+ " ch join fetch ch." + Account.class.getSimpleName()
-				+ " ac where ac.Id=" + Acc.getId()).list();
+				+ " ch where ch."+Account.class.getSimpleName()+"=" + Acc.getId()).list();
 		trans.commit();
 		return arrayList;
 	}

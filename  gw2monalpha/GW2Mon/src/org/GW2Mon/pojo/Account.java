@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
  * @version 0.0001
  */
 @Entity
-public class Account extends Object {
+public class Account{
 	private int Id, CountChar;
 	private Treasury Treasury;
 	private String Name, EMail, PW, IgPW;
