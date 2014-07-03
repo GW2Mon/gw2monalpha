@@ -63,15 +63,17 @@ public class GW2MonFunction {
 		account = accService.loadAccount(lAccounts.getSelectedIndex() + 1);
 		Iterator<Charakter> charakters = charService.loadCharakters(account).iterator();
 		while (charakters.hasNext()) {
+			GW2Mon.CharList.clear();
 			GW2Mon.CharList.addElement(charakters.next().getName());
 		}
 
 		return account;
 	}
 
-	public Charakter lCharakterClicked(DefaultListModel<String> lCharakter) {
+	public Charakter lCharakterClicked(JList<String> lCharakter) {
 		Charakter Char = null;
-
+		Char = charService.loadCharakter(lCharakter.getSelectedIndex()+1);
+		GW2Mon.tpMain.addTab(Char.getName(),new Charakter(Char));
 		return Char;
 	}
 

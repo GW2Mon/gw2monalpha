@@ -46,6 +46,7 @@ public class GW2Mon {
 	private JMenuBar menuBar;
 	private static GW2MonFunction function = new GW2MonFunction();
 	public static DefaultListModel<String> CharList = null;
+	public static JTabbedPane tpMain = new JTabbedPane(SwingConstants.TOP);
 
 	/**
 	 * Launch the application.
@@ -168,7 +169,7 @@ public class GW2Mon {
 		mnUeber.add(mntmAbout);
 		frmGwmon.getContentPane().setLayout(null);
 
-		final JTabbedPane tpMain = new JTabbedPane(SwingConstants.TOP);
+		
 		tpMain.setBounds(0, 0, 297, 437);
 		frmGwmon.getContentPane().add(tpMain);
 
@@ -197,7 +198,7 @@ public class GW2Mon {
 			}
 		});
 
-		JList<String> lCharakters = new JList<String>(CharList);
+		final JList<String> lCharakters = new JList<String>(CharList);
 		lCharakters.setBounds(10, 11, 128, 390);
 		pCharakters.add(lCharakters);
 
@@ -205,7 +206,7 @@ public class GW2Mon {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				charakter = function.lCharakterClicked(CharList);
+				charakter = function.lCharakterClicked(lCharakters);
 			}
 		});
 

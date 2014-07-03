@@ -23,12 +23,14 @@ public class CharakterDao {
 	public Charakter getCharakter(Object Char) {
 		Charakter charakter = null;
 		DB db = new DB(GW2Mon.CharCfg, GW2Mon.CharPath);
+		Transaction trans = db.session.beginTransaction();
 		if (Char.getClass() == Integer.class)
 			charakter = (Charakter) db.session.get(Charakter.class,
 					(Integer) Char);
 		else if (Char.getClass() == String.class)
 			charakter = (Charakter) db.session.createQuery("from "
 					+ Charakter.class + " where Name='" + Char + "'");
+		trans.commit();
 		return charakter;
 	}
 
@@ -59,9 +61,10 @@ public class CharakterDao {
 		ArrayList<Charakter> arrayList = null;
 		DB db = new DB(GW2Mon.CharCfg, GW2Mon.CharPath);
 		Transaction trans = db.session.beginTransaction();
-		arrayList = (ArrayList<Charakter>) db.session.createQuery(
-				"from " + Charakter.class.getSimpleName()
-				+ " ch where ch."+Account.class.getSimpleName()+"=" + Acc.getId()).list();
+		arrayList = (ArrayList<Charakter>) db.session.createSQLQuery(
+				"Select ch.* from " + Charakter.class.getSimpleName()
+				+ " ch LEFT JOIN "+Account.class.getSimpleName()+" ac ON "
+				+ "ac.Id = ch.Account where ac.Id =" + Acc.getId()).addEntity(Charakter.class).list();
 		trans.commit();
 		return arrayList;
 	}
