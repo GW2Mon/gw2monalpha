@@ -16,7 +16,7 @@ public class Equipment_has_Item {
 	}
 
 	@Id
-	@ManyToOne(targetEntity=Equipment.class)
+	@ManyToOne(targetEntity = Equipment.class)
 	public Equipment getEquipment() {
 		return Equipment;
 	}
@@ -26,7 +26,7 @@ public class Equipment_has_Item {
 	}
 
 	@Id
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getItem() {
 		return Item;
 	}

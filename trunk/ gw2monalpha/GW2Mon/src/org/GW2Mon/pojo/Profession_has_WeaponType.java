@@ -11,12 +11,13 @@ public class Profession_has_WeaponType {
 	private Profession Profession;
 	private WeaponType WeaponType;
 
-	public Profession_has_WeaponType(Profession profession, WeaponType weapontype) {
+	public Profession_has_WeaponType(Profession profession,
+			WeaponType weapontype) {
 		this.setProfession(profession);
 		this.setWeaponType(weapontype);
 	}
 
-	@ManyToOne(targetEntity=WeaponType.class)
+	@ManyToOne(targetEntity = WeaponType.class)
 	public WeaponType getWeaponType() {
 		return WeaponType;
 	}
@@ -25,7 +26,7 @@ public class Profession_has_WeaponType {
 		WeaponType = weaponType;
 	}
 
-	@ManyToOne(targetEntity=Profession.class)
+	@ManyToOne(targetEntity = Profession.class)
 	public Profession getProfession() {
 		return Profession;
 	}

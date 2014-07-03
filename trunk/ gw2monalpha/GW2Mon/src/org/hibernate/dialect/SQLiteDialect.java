@@ -1,4 +1,5 @@
 package org.hibernate.dialect;
+
 /*
  * The author disclaims copyright to this source code. In place of
  * a legal notice, here is a blessing:
@@ -10,9 +11,8 @@ package org.hibernate.dialect;
  */
 import java.sql.Types;
 
-import org.hibernate.dialect.Dialect;
-import org.hibernate.dialect.function.StandardSQLFunction;
 import org.hibernate.dialect.function.SQLFunctionTemplate;
+import org.hibernate.dialect.function.StandardSQLFunction;
 import org.hibernate.dialect.function.VarArgsSQLFunction;
 import org.hibernate.type.StandardBasicTypes;
 
@@ -43,10 +43,10 @@ public class SQLiteDialect extends Dialect {
 		registerColumnType(Types.CLOB, "clob");
 		registerColumnType(Types.BOOLEAN, "integer");
 
-		registerFunction("concat", new VarArgsSQLFunction(StandardBasicTypes.STRING, "",
-				"||", ""));
-		registerFunction("mod", new SQLFunctionTemplate(StandardBasicTypes.INTEGER,
-				"?1 % ?2"));
+		registerFunction("concat", new VarArgsSQLFunction(
+				StandardBasicTypes.STRING, "", "||", ""));
+		registerFunction("mod", new SQLFunctionTemplate(
+				StandardBasicTypes.INTEGER, "?1 % ?2"));
 		registerFunction("substr", new StandardSQLFunction("substr",
 				StandardBasicTypes.STRING));
 		registerFunction("substring", new StandardSQLFunction("substr",
@@ -58,9 +58,8 @@ public class SQLiteDialect extends Dialect {
 	}
 
 	/*
-	 public boolean supportsInsertSelectIdentity() {
-	 return true; // As specify in NHibernate dialect
-	 }
+	 * public boolean supportsInsertSelectIdentity() { return true; // As
+	 * specify in NHibernate dialect }
 	 */
 
 	public boolean hasDataTypeInIdentityColumn() {
@@ -68,12 +67,10 @@ public class SQLiteDialect extends Dialect {
 	}
 
 	/*
-	 public String appendIdentitySelectToInsert(String insertString) {
-	 return new StringBuffer(insertString.length()+30). // As specify in NHibernate dialect
-	 append(insertString).
-	 append("; ").append(getIdentitySelectString()).
-	 toString();
-	 }
+	 * public String appendIdentitySelectToInsert(String insertString) { return
+	 * new StringBuffer(insertString.length()+30). // As specify in NHibernate
+	 * dialect append(insertString).
+	 * append("; ").append(getIdentitySelectString()). toString(); }
 	 */
 
 	public String getIdentityColumnString() {
@@ -90,8 +87,9 @@ public class SQLiteDialect extends Dialect {
 	}
 
 	public String getLimitString(String query, boolean hasOffset) {
-		return new StringBuffer(query.length() + 20).append(query).append(
-				hasOffset ? " limit ? offset ?" : " limit ?").toString();
+		return new StringBuffer(query.length() + 20).append(query)
+				.append(hasOffset ? " limit ? offset ?" : " limit ?")
+				.toString();
 	}
 
 	public boolean supportsTemporaryTables() {

@@ -7,12 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Charakter_has_craftingdiscipline implements Serializable{
+public class Charakter_has_craftingdiscipline implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	public Charakter_has_craftingdiscipline(Charakter charakter,
 			CraftingDiscipline craftingdiscipline, int level) {
 		this.setCharakter(charakter);
@@ -21,7 +22,7 @@ public class Charakter_has_craftingdiscipline implements Serializable{
 	}
 
 	@Id
-	@ManyToOne(targetEntity=Charakter.class)
+	@ManyToOne(targetEntity = Charakter.class)
 	public Charakter getCharakter() {
 		return charakter;
 	}
@@ -31,7 +32,7 @@ public class Charakter_has_craftingdiscipline implements Serializable{
 	}
 
 	@Id
-	@ManyToOne(targetEntity=CraftingDiscipline.class)
+	@ManyToOne(targetEntity = CraftingDiscipline.class)
 	public CraftingDiscipline getCraftingdiscipline() {
 		return craftingdiscipline;
 	}

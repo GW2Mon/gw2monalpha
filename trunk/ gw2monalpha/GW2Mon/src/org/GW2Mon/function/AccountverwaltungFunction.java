@@ -7,10 +7,10 @@ public class AccountverwaltungFunction {
 
 	private AccountService accService = new AccountService();
 	private CharacterService charService = new CharacterService();
-	
-	public void Windowclosed(){
+
+	public void Windowclosed() {
 		accService.saveAccounts();
 		charService.saveCharakters();
 	}
-	
+
 }

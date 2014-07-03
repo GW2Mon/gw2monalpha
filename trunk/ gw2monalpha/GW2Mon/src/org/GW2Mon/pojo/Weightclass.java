@@ -7,9 +7,9 @@ import javax.persistence.Id;
 public class Weightclass {
 
 	private int Id;
-	private String NameGer,NameEng;
-	
-	public Weightclass(int id,String nameGer,String nameEng){
+	private String NameGer, NameEng;
+
+	public Weightclass(int id, String nameGer, String nameEng) {
 		setId(id);
 		setNameGer(nameGer);
 		setNameEng(nameEng);

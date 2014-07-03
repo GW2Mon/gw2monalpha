@@ -1,4 +1,5 @@
 package org.GW2Mon.model;
+
 //import java.rmi.RemoteException;
 import java.util.List;
 
@@ -14,13 +15,10 @@ public class Updater {
 	public Updater() {
 		@SuppressWarnings("unused")
 		List<Long> Recipes;
-	/**	try {
-			GW2API api = new GW2API();
-			Recipes = api.getRecipes();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-**/
+		/**
+		 * try { GW2API api = new GW2API(); Recipes = api.getRecipes(); } catch
+		 * (RemoteException e) { e.printStackTrace(); }
+		 **/
 	}
 
 }

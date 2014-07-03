@@ -9,16 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Charakter_has_achievment implements Serializable{
+public class Charakter_has_achievment implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@ManyToOne(targetEntity=Charakter.class, cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@ManyToOne(targetEntity = Charakter.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Charakter Charakter;
 	@Id
-	@ManyToOne(targetEntity=Achievment.class, cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@ManyToOne(targetEntity = Achievment.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Achievment Achievment;
 
 	public Charakter_has_achievment(Charakter charakter, Achievment achievment) {

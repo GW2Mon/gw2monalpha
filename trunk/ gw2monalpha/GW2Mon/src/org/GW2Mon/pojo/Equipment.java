@@ -11,9 +11,8 @@ public class Equipment {
 	private int Id;
 	private Account Account;
 	private Charakter Charakter;
-	private Item Head, Shoulder, Torso, Hands, Feet,
-			Back, Necklage, EarringL, EarringR, Accessior1, Accessior2, HandL,
-			HandR;
+	private Item Head, Shoulder, Torso, Hands, Feet, Back, Necklage, EarringL,
+			EarringR, Accessior1, Accessior2, HandL, HandR;
 
 	private String Name;
 
@@ -33,8 +32,8 @@ public class Equipment {
 		Id = id;
 	}
 
-	@Column(nullable=false)
-	@ManyToOne(targetEntity=Account.class)
+	@Column(nullable = false)
+	@ManyToOne(targetEntity = Account.class)
 	public Account getAccount() {
 		return Account;
 	}
@@ -43,8 +42,8 @@ public class Equipment {
 		Account = account;
 	}
 
-	@Column(nullable=false)
-	@ManyToOne(targetEntity=Charakter.class)
+	@Column(nullable = false)
+	@ManyToOne(targetEntity = Charakter.class)
 	public Charakter getCharakter() {
 		return Charakter;
 	}
@@ -53,7 +52,7 @@ public class Equipment {
 		Charakter = charakter;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getHead() {
 		return Head;
 	}
@@ -62,7 +61,7 @@ public class Equipment {
 		Head = head;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getShoulder() {
 		return Shoulder;
 	}
@@ -71,7 +70,7 @@ public class Equipment {
 		Shoulder = shoulder;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getTorso() {
 		return Torso;
 	}
@@ -80,7 +79,7 @@ public class Equipment {
 		Torso = torso;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getHands() {
 		return Hands;
 	}
@@ -89,7 +88,7 @@ public class Equipment {
 		Hands = hands;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getFeet() {
 		return Feet;
 	}
@@ -98,7 +97,7 @@ public class Equipment {
 		Feet = feet;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getBack() {
 		return Back;
 	}
@@ -107,7 +106,7 @@ public class Equipment {
 		Back = back;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getNecklage() {
 		return Necklage;
 	}
@@ -116,7 +115,7 @@ public class Equipment {
 		Necklage = necklage;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getEarringL() {
 		return EarringL;
 	}
@@ -125,7 +124,7 @@ public class Equipment {
 		EarringL = earringL;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getAccessior1() {
 		return Accessior1;
 	}
@@ -134,7 +133,7 @@ public class Equipment {
 		Accessior1 = accessior1;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getAccessior2() {
 		return Accessior2;
 	}
@@ -143,7 +142,7 @@ public class Equipment {
 		Accessior2 = accessior2;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getHandL() {
 		return HandL;
 	}
@@ -152,7 +151,7 @@ public class Equipment {
 		HandL = handL;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getHandR() {
 		return HandR;
 	}
@@ -161,7 +160,7 @@ public class Equipment {
 		HandR = handR;
 	}
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public String getName() {
 		return Name;
 	}
@@ -170,7 +169,7 @@ public class Equipment {
 		Name = name;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getEarringR() {
 		return EarringR;
 	}

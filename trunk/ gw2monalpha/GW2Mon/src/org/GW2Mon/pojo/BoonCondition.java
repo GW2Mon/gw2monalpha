@@ -1,6 +1,5 @@
 package org.GW2Mon.pojo;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -12,8 +11,8 @@ public class BoonCondition {
 	private Attribute Attribute;
 	private String NameGer, NameEng, Wirkung;
 
-	public BoonCondition(int id, String nameGer, String nameEng, Attribute attribute,
-			String wirkung) {
+	public BoonCondition(int id, String nameGer, String nameEng,
+			Attribute attribute, String wirkung) {
 		this.setId(id);
 		this.setNameGer(nameGer);
 		this.setNameEng(nameEng);
@@ -21,7 +20,7 @@ public class BoonCondition {
 		this.setWirkung(wirkung);
 	}
 
-	@ManyToOne(targetEntity=Attribute.class)
+	@ManyToOne(targetEntity = Attribute.class)
 	public Attribute getAttribute() {
 		return Attribute;
 	}

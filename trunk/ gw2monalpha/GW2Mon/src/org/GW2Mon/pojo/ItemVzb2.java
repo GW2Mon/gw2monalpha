@@ -1,6 +1,5 @@
 package org.GW2Mon.pojo;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -22,7 +21,7 @@ public class ItemVzb2 {
 		this.setItemVzb1(ItemVzb1);
 	}
 
-	@ManyToOne(targetEntity=ItemVzb.class)
+	@ManyToOne(targetEntity = ItemVzb.class)
 	public ItemVzb getItemVzb() {
 		return ItemVzb;
 	}
@@ -31,7 +30,7 @@ public class ItemVzb2 {
 		ItemVzb = itemVzb;
 	}
 
-	@ManyToOne(targetEntity=ItemVzb1.class)
+	@ManyToOne(targetEntity = ItemVzb1.class)
 	public ItemVzb1 getItemVzb1() {
 		return ItemVzb1;
 	}

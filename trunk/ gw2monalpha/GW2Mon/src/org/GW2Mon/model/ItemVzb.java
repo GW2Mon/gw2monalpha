@@ -1,4 +1,5 @@
 package org.GW2Mon.model;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -8,6 +9,7 @@ import javax.swing.JTree;
 
 import org.GW2Mon.lib.DefaultMutableTreeNode;
 import org.GW2Mon.pojo.Item;
+
 /**
  * 
  * @author GW2Mon[at]gmail.com
@@ -21,9 +23,9 @@ public class ItemVzb extends JDialog {
 	private static Item ItemSelected;
 	private JLabel lblItemNameGer, lblItemNameEng;
 	private static final long serialVersionUID = 1L;
-	protected static boolean closed =false;
+	protected static boolean closed = false;
 
-	public ItemVzb(){
+	public ItemVzb() {
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -48,9 +50,9 @@ public class ItemVzb extends JDialog {
 		lblItemNameEng.setBounds(233, 87, 201, 14);
 		getContentPane().add(lblItemNameEng);
 	}
-	
-	public ItemVzb(final Equipment equip,final Item item){
-		ItemVzb itemvzb=new ItemVzb();
+
+	public ItemVzb(final Equipment equip, final Item item) {
+		ItemVzb itemvzb = new ItemVzb();
 		itemvzb.Tree_Anlegen();
 		ItemTree = new JTree(ItemTreeNode);
 		ItemTree.addMouseListener(new MouseAdapter() {
@@ -63,22 +65,22 @@ public class ItemVzb extends JDialog {
 					lblItemNameGer.setText(ItemSelected.getNameGer());
 					lblItemNameEng.setText(ItemSelected.getNameEng());
 				}
-				if (mevt.getClickCount() > 1){ 
+				if (mevt.getClickCount() > 1) {
 					ItemSelected = (org.GW2Mon.pojo.Item) Sel.getMainObject();
-					if (item.getArmor()==1){
-						}
-					if (item.getTrinket()==1){
-						}
-					if (item.getWeapon()==1){
-						
+					if (item.getArmor() == 1) {
+					}
+					if (item.getTrinket() == 1) {
+					}
+					if (item.getWeapon() == 1) {
+
 					}
 				}
 			}
 		});
 	}
-	
+
 	public ItemVzb(Coredata core) {
-		ItemVzb itemvzb=new ItemVzb();
+		ItemVzb itemvzb = new ItemVzb();
 		itemvzb.Tree_Anlegen();
 		ItemTree = new JTree(ItemTreeNode);
 		ItemTree.addMouseListener(new MouseAdapter() {
@@ -91,14 +93,14 @@ public class ItemVzb extends JDialog {
 					lblItemNameGer.setText(ItemSelected.getNameGer());
 					lblItemNameEng.setText(ItemSelected.getNameEng());
 				}
-				if (mevt.getClickCount() > 1){ 
+				if (mevt.getClickCount() > 1) {
 					ItemSelected = (org.GW2Mon.pojo.Item) Sel.getMainObject();
 				}
 			}
 		});
 	}
-	
-	private void Tree_Anlegen(){
-		
+
+	private void Tree_Anlegen() {
+
 	}
 }

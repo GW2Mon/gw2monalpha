@@ -3,7 +3,7 @@ package org.GW2Mon.dao;
 import java.util.ArrayList;
 
 import org.GW2Mon.GW2Mon;
-import org.GW2Mon.model.DB;
+import org.GW2Mon.function.DB;
 import org.GW2Mon.pojo.Account;
 import org.GW2Mon.pojo.Charakter;
 import org.hibernate.Transaction;
@@ -60,10 +60,9 @@ public class CharakterDao {
 		DB db = new DB(GW2Mon.CharCfg, GW2Mon.CharPath);
 		Transaction trans = db.session.beginTransaction();
 		arrayList = (ArrayList<Charakter>) db.session.createQuery(
-				"from " + Charakter.class.getSimpleName() + " ch join fetch ch."
-						+ Account.class.getSimpleName()
-						+ " ac where ac.Id=" + Acc.getId())
-				.list();
+				"from " + Charakter.class.getSimpleName()
+				+ " ch join fetch ch." + Account.class.getSimpleName()
+				+ " ac where ac.Id=" + Acc.getId()).list();
 		trans.commit();
 		return arrayList;
 	}

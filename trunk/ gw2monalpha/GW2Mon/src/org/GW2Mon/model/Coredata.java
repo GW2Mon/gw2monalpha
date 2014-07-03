@@ -1,4 +1,5 @@
 package org.GW2Mon.model;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
@@ -83,43 +84,43 @@ public class Coredata extends JFrame {
 		cbRace.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				}
+			}
 		});
 
 		pProfession.addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent arg0) {
-				}
+			}
 		});
 
 		cbProfession.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				}
+			}
 		});
 
 		pTrait.addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent arg0) {
-				}
+			}
 		});
 
 		cbTrait.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				}
+			}
 		});
 
 		pSkill.addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent arg0) {
-				}
+			}
 		});
 
 		cbSkill.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				}
+			}
 		});
 
 		pItem.addComponentListener(new ComponentAdapter() {
@@ -133,49 +134,49 @@ public class Coredata extends JFrame {
 		pRecept.addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent arg0) {
-				}
+			}
 		});
 
 		cbRecept.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				}
+			}
 		});
 
 		pBoonCondition.addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent arg0) {
-				}
+			}
 		});
 
 		cbBoonCondition.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				}
+			}
 		});
 
 		pCraftingDiscipline.addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent arg0) {
-				}
+			}
 		});
 
 		cbCraftingDiscipline.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				}
+			}
 		});
 
 		pAchievment.addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent arg0) {
-				}
+			}
 		});
 
 		cbAchievment.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				}
+			}
 		});
 	}
 

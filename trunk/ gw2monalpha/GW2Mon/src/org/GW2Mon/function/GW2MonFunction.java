@@ -61,13 +61,13 @@ public class GW2MonFunction {
 	 */
 	public Account lAccountClicked(JList<String> lAccounts) {
 		Account account = null;
-		account = accService.loadAccount(lAccounts.getSelectedIndex()+1);
+		account = accService.loadAccount(lAccounts.getSelectedIndex() + 1);
 		List<Charakter> result = charService.loadCharakters(account);
 		Iterator<Charakter> charakters = result.iterator();
-		while (charakters.hasNext()){
+		while (charakters.hasNext()) {
 			GW2Mon.CharList.addElement(charakters.next().getName());
 		}
-		
+
 		return account;
 	}
 

@@ -2,33 +2,35 @@ package org.GW2Mon.dao;
 
 import java.util.ArrayList;
 
-import org.GW2Mon.model.DB;
+import org.GW2Mon.function.DB;
 import org.GW2Mon.pojo.Trait;
 import org.hibernate.Transaction;
 
 public class TraitDao {
 
 	/**
-	 * Returns Trait with Id or NameEng param
-	 * corresponding on Type of param.
+	 * Returns Trait with Id or NameEng param corresponding on Type of param.
+	 * 
 	 * @param param
 	 * @return Trait
 	 */
 	public Trait getTrait(Object param) {
 		Trait trait = null;
 		DB db = new DB();
-		if (param.getClass()==Integer.class)
-		trait = (Trait) db.session.get(Trait.class, (Integer) param);
-		else if (param.getClass()==String.class)
+		if (param.getClass() == Integer.class)
+			trait = (Trait) db.session.get(Trait.class, (Integer) param);
+		else if (param.getClass() == String.class)
 			trait = (Trait) db.session.createQuery(
 					"from " + Trait.class + "where NameEng='" + param + "'")
 					.uniqueResult();
-		else System.out.println("Type of param not supported.");
+		else
+			System.out.println("Type of param not supported.");
 		return trait;
 	}
 
 	/**
 	 * Returns all Traits.
+	 * 
 	 * @return ArrayList< Trait>
 	 */
 	@SuppressWarnings("unchecked")
@@ -42,6 +44,7 @@ public class TraitDao {
 
 	/**
 	 * Sets Trait trait.
+	 * 
 	 * @param trait
 	 */
 	public void setTrait(Trait trait) {
@@ -58,6 +61,7 @@ public class TraitDao {
 
 	/**
 	 * Sets all Traits in ArrayList arrayList.
+	 * 
 	 * @param traits
 	 */
 	public void setTraits(ArrayList<Trait> arrayList) {

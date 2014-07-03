@@ -14,22 +14,22 @@ import javax.persistence.Table;
  * @version 0.0001
  */
 @Entity
-@Table(name="Account_has_Achievment")
-public class Account_has_achievment implements Serializable{
+@Table(name = "Account_has_Achievment")
+public class Account_has_achievment implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@ManyToOne(targetEntity=Account.class, cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@ManyToOne(targetEntity = Account.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Account Account;
 	@Id
-	@ManyToOne(targetEntity=Achievment.class, cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@ManyToOne(targetEntity = Achievment.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Achievment Achievment;
 
 	/**
-	 * @param achievment 
-	 * @param account 
+	 * @param achievment
+	 * @param account
 	 * @category constructor
 	 */
 	public Account_has_achievment(Account account, Achievment achievment) {

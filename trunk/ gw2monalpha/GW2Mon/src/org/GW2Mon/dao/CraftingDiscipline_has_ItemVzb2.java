@@ -2,7 +2,7 @@ package org.GW2Mon.dao;
 
 import java.util.ArrayList;
 
-import org.GW2Mon.model.DB;
+import org.GW2Mon.function.DB;
 import org.GW2Mon.pojo.CraftingDiscipline;
 import org.GW2Mon.pojo.ItemVzb2;
 import org.hibernate.Transaction;
@@ -10,21 +10,28 @@ import org.hibernate.Transaction;
 public class CraftingDiscipline_has_ItemVzb2 {
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<CraftingDiscipline_has_ItemVzb2> getCraftingDiscipline_has_ItemVzb2s(){
+	public ArrayList<CraftingDiscipline_has_ItemVzb2> getCraftingDiscipline_has_ItemVzb2s() {
 		ArrayList<CraftingDiscipline_has_ItemVzb2> arrayList = null;
 		DB db = new DB();
-		arrayList = (ArrayList<CraftingDiscipline_has_ItemVzb2>) db.session.createQuery("from "+CraftingDiscipline_has_ItemVzb2.class).list();
+		arrayList = (ArrayList<CraftingDiscipline_has_ItemVzb2>) db.session
+				.createQuery("from " + CraftingDiscipline_has_ItemVzb2.class)
+				.list();
 		return arrayList;
 	}
-	
-	public CraftingDiscipline_has_ItemVzb2 getCraftingDiscipline_has_ItemVzb2(CraftingDiscipline CD,ItemVzb2 itemVzb2){
-		CraftingDiscipline_has_ItemVzb2 CD_has_ItemVzb2=null;
+
+	public CraftingDiscipline_has_ItemVzb2 getCraftingDiscipline_has_ItemVzb2(
+			CraftingDiscipline CD, ItemVzb2 itemVzb2) {
+		CraftingDiscipline_has_ItemVzb2 CD_has_ItemVzb2 = null;
 		DB db = new DB();
-		CD_has_ItemVzb2 = (CraftingDiscipline_has_ItemVzb2) db.session.createQuery("from "+CraftingDiscipline_has_ItemVzb2.class+"where CraftingDiscipline="+CD.getId()+" and ItemVzb2="+itemVzb2.getId());
+		CD_has_ItemVzb2 = (CraftingDiscipline_has_ItemVzb2) db.session
+				.createQuery("from " + CraftingDiscipline_has_ItemVzb2.class
+						+ "where CraftingDiscipline=" + CD.getId()
+						+ " and ItemVzb2=" + itemVzb2.getId());
 		return CD_has_ItemVzb2;
 	}
-	
-	public void setCraftingDiscipline_has_ItemVzb2(CraftingDiscipline_has_ItemVzb2 CD_has_ItemVzb2){
+
+	public void setCraftingDiscipline_has_ItemVzb2(
+			CraftingDiscipline_has_ItemVzb2 CD_has_ItemVzb2) {
 		DB db = new DB();
 		Transaction trans = db.session.beginTransaction();
 		try {
@@ -35,8 +42,9 @@ public class CraftingDiscipline_has_ItemVzb2 {
 			trans.rollback();
 		}
 	}
-	
-	public void setCraftingDiscipline_has_ItemVzb2s(ArrayList<CraftingDiscipline_has_ItemVzb2> arrayList){
+
+	public void setCraftingDiscipline_has_ItemVzb2s(
+			ArrayList<CraftingDiscipline_has_ItemVzb2> arrayList) {
 		DB db = new DB();
 		Transaction trans = db.session.beginTransaction();
 		try {
@@ -48,8 +56,9 @@ public class CraftingDiscipline_has_ItemVzb2 {
 			trans.rollback();
 		}
 	}
-	
-	public void setCraftingDiscipline_has_ItemVzb2(CraftingDiscipline CD,ItemVzb2 itemVzb2){
+
+	public void setCraftingDiscipline_has_ItemVzb2(CraftingDiscipline CD,
+			ItemVzb2 itemVzb2) {
 		DB db = new DB();
 		Transaction trans = db.session.beginTransaction();
 		try {
@@ -61,5 +70,5 @@ public class CraftingDiscipline_has_ItemVzb2 {
 			trans.rollback();
 		}
 	}
-	
+
 }

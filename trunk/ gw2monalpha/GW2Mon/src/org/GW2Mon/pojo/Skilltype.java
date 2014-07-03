@@ -13,8 +13,8 @@ public class Skilltype {
 	private Profession Profession;
 	private String NameGer, NameEng;
 
-	public Skilltype(int id, WeaponType weaponType, Profession profession, String nameGer,
-			String nameEng, int handling) {
+	public Skilltype(int id, WeaponType weaponType, Profession profession,
+			String nameGer, String nameEng, int handling) {
 		this.setId(id);
 		this.setWeaponType(weaponType);
 		this.setProfession(profession);
@@ -32,7 +32,7 @@ public class Skilltype {
 		Id = id;
 	}
 
-	@ManyToOne(targetEntity=Profession.class)
+	@ManyToOne(targetEntity = Profession.class)
 	public Profession getProfession() {
 		return Profession;
 	}
@@ -41,7 +41,7 @@ public class Skilltype {
 		Profession = profession;
 	}
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public int getHandling() {
 		return Handling;
 	}
@@ -50,7 +50,7 @@ public class Skilltype {
 		Handling = handling;
 	}
 
-	@ManyToOne(targetEntity=WeaponType.class)
+	@ManyToOne(targetEntity = WeaponType.class)
 	public WeaponType getWeaponType() {
 		return WeaponType;
 	}

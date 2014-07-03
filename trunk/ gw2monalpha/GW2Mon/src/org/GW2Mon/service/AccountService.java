@@ -10,8 +10,8 @@ public class AccountService {
 	private AccountDao AccDao = new AccountDao();
 
 	/**
-	 * Saves the Account with Id or Name Acc 
-	 * corresponding on Type of Acc.
+	 * Saves the Account with Id or Name Acc corresponding on Type of Acc.
+	 * 
 	 * @param Acc
 	 */
 	public void saveAccount(Object Acc) {
@@ -24,17 +24,19 @@ public class AccountService {
 	public void saveAccounts() {
 		AccDao.setAccounts(AccDao.getAccounts());
 	}
-	
+
 	/**
 	 * Saves all Accounts in the ArrayList
+	 * 
 	 * @param arrayList
 	 */
-	public void saveAccounts(ArrayList<Account> arrayList){
+	public void saveAccounts(ArrayList<Account> arrayList) {
 		AccDao.setAccounts(arrayList);
 	}
 
 	/**
 	 * Loads all Accounts
+	 * 
 	 * @return ArrayList< Account>
 	 */
 	public ArrayList<Account> loadAccounts() {
@@ -42,8 +44,8 @@ public class AccountService {
 	}
 
 	/**
-	 * Loads the Account with Id or Name Acc
-	 * corresponding on Type of Acc
+	 * Loads the Account with Id or Name Acc corresponding on Type of Acc
+	 * 
 	 * @param Acc
 	 * @return Account
 	 */

@@ -10,8 +10,9 @@ public class AchievCat1 {
 	private int Id, SumPoints, CountAchiev;
 	private AchievCat Achievcat;
 	private String NameGer, NameEng;
-	
-	public AchievCat1(int id, String nameGer, String nameEng,AchievCat achievcat,int countAchiev,int sumPoints) {
+
+	public AchievCat1(int id, String nameGer, String nameEng,
+			AchievCat achievcat, int countAchiev, int sumPoints) {
 		this.setId(id);
 		this.setNameGer(nameGer);
 		this.setNameEng(nameEng);
@@ -20,7 +21,7 @@ public class AchievCat1 {
 		this.setSumPoints(sumPoints);
 	}
 
-	@ManyToOne(targetEntity=AchievCat.class)
+	@ManyToOne(targetEntity = AchievCat.class)
 	public AchievCat getAchievcat() {
 		return Achievcat;
 	}

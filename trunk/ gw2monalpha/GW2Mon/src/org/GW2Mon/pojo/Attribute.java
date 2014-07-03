@@ -7,7 +7,7 @@ import javax.persistence.Id;
 @Entity
 public class Attribute {
 
-	private int Id,Type;
+	private int Id, Type;
 	private String NameGer, NameEng, HintGer, HintEng;
 
 	public Attribute(int id, int type, String nameGer, String nameEng,
@@ -20,7 +20,7 @@ public class Attribute {
 		this.HintEng = hintEng;
 	}
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public int getType() {
 		return Type;
 	}

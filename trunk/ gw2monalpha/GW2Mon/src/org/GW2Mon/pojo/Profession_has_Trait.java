@@ -16,7 +16,7 @@ public class Profession_has_Trait {
 		this.setTrait(trait);
 	}
 
-	@ManyToOne(targetEntity=Trait.class)
+	@ManyToOne(targetEntity = Trait.class)
 	public Trait getTrait() {
 		return Trait;
 	}
@@ -25,7 +25,7 @@ public class Profession_has_Trait {
 		Trait = trait;
 	}
 
-	@ManyToOne(targetEntity=Profession.class)
+	@ManyToOne(targetEntity = Profession.class)
 	public Profession getProfession() {
 		return Profession;
 	}

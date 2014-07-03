@@ -2,7 +2,7 @@ package org.GW2Mon.dao;
 
 import java.util.ArrayList;
 
-import org.GW2Mon.model.DB;
+import org.GW2Mon.function.DB;
 import org.GW2Mon.pojo.Item;
 import org.GW2Mon.pojo.Recipe;
 import org.hibernate.Transaction;
@@ -10,8 +10,8 @@ import org.hibernate.Transaction;
 public class RecipeDao {
 
 	/**
-	 * Returns Recipe with Id or Item param 
-	 * corresponding on Type of param.
+	 * Returns Recipe with Id or Item param corresponding on Type of param.
+	 * 
 	 * @param param
 	 * @return Recipe
 	 */
@@ -41,12 +41,13 @@ public class RecipeDao {
 				"from " + Recipe.class).list();
 		return arrayList;
 	}
-	
+
 	/**
 	 * Sets Recipe recipe.
+	 * 
 	 * @param recipe
 	 */
-	public void setRecipe(Recipe recipe){
+	public void setRecipe(Recipe recipe) {
 		DB db = new DB();
 		Transaction trans = db.session.beginTransaction();
 		try {
@@ -57,12 +58,13 @@ public class RecipeDao {
 			trans.rollback();
 		}
 	}
-	
+
 	/**
 	 * Sets all Recipes in ArrayList arrayList.
+	 * 
 	 * @param arrayList
 	 */
-	public void setRecipes(ArrayList<Recipe> arrayList){
+	public void setRecipes(ArrayList<Recipe> arrayList) {
 		DB db = new DB();
 		Transaction trans = db.session.beginTransaction();
 		try {

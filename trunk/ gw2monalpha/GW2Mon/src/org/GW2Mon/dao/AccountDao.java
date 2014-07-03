@@ -3,7 +3,7 @@ package org.GW2Mon.dao;
 import java.util.ArrayList;
 
 import org.GW2Mon.GW2Mon;
-import org.GW2Mon.model.DB;
+import org.GW2Mon.function.DB;
 import org.GW2Mon.pojo.Account;
 import org.hibernate.Transaction;
 
@@ -18,7 +18,7 @@ public class AccountDao {
 	public Account getAccount(Object Acc) {
 		Account account = null;
 		DB db = new DB(GW2Mon.AccCfg, GW2Mon.AccPath);
-		Transaction trans = db.session.beginTransaction();		
+		Transaction trans = db.session.beginTransaction();
 		if (Acc.getClass() == Integer.class)
 			account = (Account) db.session.get(Account.class, (Integer) Acc);
 		else if (Acc.getClass() == String.class)
