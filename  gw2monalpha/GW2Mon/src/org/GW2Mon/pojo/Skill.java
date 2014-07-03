@@ -32,7 +32,7 @@ public class Skill {
 		Id = id;
 	}
 
-	@ManyToOne(targetEntity=Skilltype.class)
+	@ManyToOne(targetEntity = Skilltype.class)
 	public Skilltype getSkilltype() {
 		return Skilltype;
 	}
@@ -57,7 +57,7 @@ public class Skill {
 		NameGer = nameGer;
 	}
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public int getHandling() {
 		return Handling;
 	}
@@ -66,7 +66,7 @@ public class Skill {
 		Handling = handling;
 	}
 
-	@ManyToOne(targetEntity=WeaponType.class)
+	@ManyToOne(targetEntity = WeaponType.class)
 	public WeaponType getWeaponType() {
 		return WeaponType;
 	}

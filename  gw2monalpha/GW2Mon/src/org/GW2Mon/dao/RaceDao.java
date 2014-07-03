@@ -2,15 +2,15 @@ package org.GW2Mon.dao;
 
 import java.util.ArrayList;
 
-import org.GW2Mon.model.DB;
+import org.GW2Mon.function.DB;
 import org.GW2Mon.pojo.Race;
 import org.hibernate.Transaction;
 
 public class RaceDao {
 
 	/**
-	 * Returns Race with Id or NameEng param
-	 * corresponding on Type of param. 
+	 * Returns Race with Id or NameEng param corresponding on Type of param.
+	 * 
 	 * @param param
 	 * @return Race
 	 */

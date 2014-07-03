@@ -45,7 +45,7 @@ public class GW2Mon {
 	private JFrame frmGwmon;
 	private JMenuBar menuBar;
 	private static GW2MonFunction function = new GW2MonFunction();
-	public static DefaultListModel<String> CharList=null;
+	public static DefaultListModel<String> CharList = null;
 
 	/**
 	 * Launch the application.
@@ -190,7 +190,7 @@ public class GW2Mon {
 		lAccounts.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				if (arg0.getClickCount() > 1){
+				if (arg0.getClickCount() > 1) {
 					account = function.lAccountClicked(lAccounts);
 					tpMain.setSelectedComponent(pCharakters);
 				}

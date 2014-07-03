@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -15,9 +14,9 @@ public class Guild {
 	private Account LeaderAcc;
 	private String Name, Tag, Hint, GuildBanner, Commentary;
 
-	public Guild(int id, String name, String tag, Charakter leader, Account leaderAcc,
-			int memberCount, int guildmerit, int influence, String guildBanner,
-			String hint, String commentary) {
+	public Guild(int id, String name, String tag, Charakter leader,
+			Account leaderAcc, int memberCount, int guildmerit, int influence,
+			String guildBanner, String hint, String commentary) {
 		this.setId(id);
 		this.setName(name);
 		this.setTag(tag);
@@ -39,7 +38,7 @@ public class Guild {
 		MemberCount = memberCount;
 	}
 
-	@OneToOne(targetEntity=Charakter.class)
+	@OneToOne(targetEntity = Charakter.class)
 	public Charakter getLeader() {
 		return Leader;
 	}
@@ -57,7 +56,7 @@ public class Guild {
 		Id = id;
 	}
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public String getName() {
 		return Name;
 	}
@@ -66,7 +65,7 @@ public class Guild {
 		Name = name;
 	}
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public String getTag() {
 		return Tag;
 	}
@@ -115,7 +114,7 @@ public class Guild {
 		GuildBanner = guildBanner;
 	}
 
-	@ManyToOne(targetEntity=Account.class)
+	@ManyToOne(targetEntity = Account.class)
 	public Account getLeaderAcc() {
 		return LeaderAcc;
 	}

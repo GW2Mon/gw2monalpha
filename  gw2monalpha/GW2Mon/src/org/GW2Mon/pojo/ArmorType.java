@@ -5,11 +5,11 @@ import javax.persistence.Id;
 
 @Entity
 public class ArmorType {
-	
+
 	private int Id;
-	private String NameGer,NameEng;
-	
-	public ArmorType(int id,String nameGer,String nameEng){
+	private String NameGer, NameEng;
+
+	public ArmorType(int id, String nameGer, String nameEng) {
 		setId(id);
 		setNameGer(nameGer);
 		setNameEng(nameEng);

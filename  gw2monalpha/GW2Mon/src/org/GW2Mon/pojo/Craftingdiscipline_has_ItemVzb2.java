@@ -10,13 +10,14 @@ public class Craftingdiscipline_has_ItemVzb2 {
 	private CraftingDiscipline Craftingdiscipline;
 	private ItemVzb2 ItemVzb2;
 
-	public Craftingdiscipline_has_ItemVzb2(CraftingDiscipline craftdisc,ItemVzb2 itemvzb2) {
+	public Craftingdiscipline_has_ItemVzb2(CraftingDiscipline craftdisc,
+			ItemVzb2 itemvzb2) {
 		this.setCraftingdiscipline(craftdisc);
 		this.setItemVzb2(itemvzb2);
 	}
 
 	@Id
-	@ManyToOne(targetEntity=CraftingDiscipline.class)
+	@ManyToOne(targetEntity = CraftingDiscipline.class)
 	public CraftingDiscipline getCraftingdiscipline() {
 		return Craftingdiscipline;
 	}
@@ -26,7 +27,7 @@ public class Craftingdiscipline_has_ItemVzb2 {
 	}
 
 	@Id
-	@ManyToOne(targetEntity=ItemVzb2.class)
+	@ManyToOne(targetEntity = ItemVzb2.class)
 	public ItemVzb2 getItemVzb2() {
 		return ItemVzb2;
 	}

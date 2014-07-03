@@ -9,20 +9,20 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Charakter_has_guild implements Serializable{
+public class Charakter_has_guild implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@ManyToOne(targetEntity=Account.class, cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@ManyToOne(targetEntity = Account.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Account account;
 	@Id
-	@ManyToOne(targetEntity=Charakter.class, cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@ManyToOne(targetEntity = Charakter.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Charakter charakter;
 	@Id
-	@ManyToOne(targetEntity=Guild.class, cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@ManyToOne(targetEntity = Guild.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Guild guild;
 
 	public Charakter_has_guild(Charakter charakter, Account account, Guild guild) {

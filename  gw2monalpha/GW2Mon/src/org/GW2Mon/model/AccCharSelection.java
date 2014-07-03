@@ -1,4 +1,5 @@
 package org.GW2Mon.model;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -49,7 +50,7 @@ public class AccCharSelection extends JFrame {
 		cbAccount.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent arg0) {
-				
+
 			}
 		});
 		contentPane.add(cbAccount);

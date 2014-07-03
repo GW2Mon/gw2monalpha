@@ -1,4 +1,5 @@
 package org.GW2Mon.model;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -30,24 +31,25 @@ public class RessourceCalc extends JFrame {
 	@SuppressWarnings("unused")
 	private Charakter charakter;
 
-	public RessourceCalc getInstance(org.GW2Mon.pojo.Account account,org.GW2Mon.pojo.Charakter charakter) {
+	public RessourceCalc getInstance(org.GW2Mon.pojo.Account account,
+			org.GW2Mon.pojo.Charakter charakter) {
 		if (instance == null)
-			instance = new RessourceCalc(account,charakter);
+			instance = new RessourceCalc(account, charakter);
 		return instance;
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	public RessourceCalc(Account acc,Charakter Char) {
-		account=acc;
-		charakter=Char;
+	public RessourceCalc(Account acc, Charakter Char) {
+		account = acc;
+		charakter = Char;
 		setTitle("Ressourcen-Calculator");
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 559);
 
 		init_Components();
-		
+
 		tabbedPane.setSelectedIndex(0);
 	}
 

@@ -14,6 +14,7 @@ public class AchievCat {
 		this.NameGer = nameGer;
 		this.NameEng = nameEng;
 	}
+
 	@Id
 	public int getId() {
 		return Id;

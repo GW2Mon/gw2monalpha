@@ -18,7 +18,7 @@ public class WeaponType {
 		this.setAquantic(aquantic);
 	}
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public int getHandling() {
 		return Handling;
 	}
@@ -27,7 +27,7 @@ public class WeaponType {
 		Handling = handling;
 	}
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public int getAquantic() {
 		return Aquantic;
 	}

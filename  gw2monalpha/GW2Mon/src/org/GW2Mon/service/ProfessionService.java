@@ -8,20 +8,20 @@ import org.GW2Mon.pojo.Profession;
 public class ProfessionService {
 
 	private ProfessionDao profDao = new ProfessionDao();
-	
-	public void saveProfessions(ArrayList<Profession> arrayList){
+
+	public void saveProfessions(ArrayList<Profession> arrayList) {
 		profDao.setProfessions(arrayList);
 	}
-	
-	public void saveProfessions(){
+
+	public void saveProfessions() {
 		profDao.setProfessions(profDao.getProfessions());
 	}
-	
-	public void saveProfession(Profession prof){
+
+	public void saveProfession(Profession prof) {
 		profDao.setProfession(prof);
 	}
-	
-	public void saveProfession(Object param){
+
+	public void saveProfession(Object param) {
 		profDao.setProfession(profDao.getProfession(param));
 	}
 }

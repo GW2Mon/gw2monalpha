@@ -34,7 +34,7 @@ public class Rarity {
 		NameGer = nameGer;
 	}
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public String getColor() {
 		return Color;
 	}

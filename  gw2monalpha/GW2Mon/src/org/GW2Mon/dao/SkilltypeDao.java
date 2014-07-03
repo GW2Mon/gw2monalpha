@@ -2,7 +2,7 @@ package org.GW2Mon.dao;
 
 import java.util.ArrayList;
 
-import org.GW2Mon.model.DB;
+import org.GW2Mon.function.DB;
 import org.GW2Mon.pojo.Skilltype;
 import org.hibernate.Transaction;
 
@@ -10,33 +10,37 @@ public class SkilltypeDao {
 
 	/**
 	 * Returns Skilltype with Id id.
+	 * 
 	 * @param id
 	 * @return Skilltype
 	 */
-	public Skilltype getSkilltype(int id){
+	public Skilltype getSkilltype(int id) {
 		Skilltype skilltype = null;
-		DB db=new DB();
-		skilltype=(Skilltype) db.session.get(Skilltype.class, id);
+		DB db = new DB();
+		skilltype = (Skilltype) db.session.get(Skilltype.class, id);
 		return skilltype;
 	}
-	
+
 	/**
 	 * Returns all Skilltypes.
+	 * 
 	 * @return ArrayList< Skilltype>
 	 */
 	@SuppressWarnings("unchecked")
-	public ArrayList<Skilltype> getSkilltypes(){
+	public ArrayList<Skilltype> getSkilltypes() {
 		ArrayList<Skilltype> arrayList = null;
-		DB db=new DB();
-		arrayList=(ArrayList<Skilltype>) db.session.createQuery("from "+Skilltype.class).list();
+		DB db = new DB();
+		arrayList = (ArrayList<Skilltype>) db.session.createQuery(
+				"from " + Skilltype.class).list();
 		return arrayList;
 	}
-	
+
 	/**
 	 * Sets Skilltype skilltype.
+	 * 
 	 * @param skilltype
 	 */
-	public void setSkilltype(Skilltype skilltype){
+	public void setSkilltype(Skilltype skilltype) {
 		DB db = new DB();
 		Transaction trans = db.session.beginTransaction();
 		try {
@@ -47,12 +51,13 @@ public class SkilltypeDao {
 			trans.rollback();
 		}
 	}
-	
+
 	/**
 	 * Sets all Skilltypes in ArrayList arrayList.
+	 * 
 	 * @param arrayList
 	 */
-	public void setSkilltypes(ArrayList<Skilltype> arrayList){
+	public void setSkilltypes(ArrayList<Skilltype> arrayList) {
 		DB db = new DB();
 		Transaction trans = db.session.beginTransaction();
 		try {

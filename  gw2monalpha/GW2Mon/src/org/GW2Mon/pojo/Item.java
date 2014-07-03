@@ -85,7 +85,7 @@ public class Item {
 		Id = id;
 	}
 
-	@ManyToOne(targetEntity=ItemVzb.class)
+	@ManyToOne(targetEntity = ItemVzb.class)
 	public ItemVzb getItemVZB() {
 		return ItemVZB;
 	}
@@ -94,7 +94,7 @@ public class Item {
 		ItemVZB = itemVZB;
 	}
 
-	@ManyToOne(targetEntity=ItemVzb1.class)
+	@ManyToOne(targetEntity = ItemVzb1.class)
 	public ItemVzb1 getItemVZB1() {
 		return ItemVZB1;
 	}
@@ -103,7 +103,7 @@ public class Item {
 		ItemVZB1 = itemVZB1;
 	}
 
-	@ManyToOne(targetEntity=ItemVzb2.class)
+	@ManyToOne(targetEntity = ItemVzb2.class)
 	public ItemVzb2 getItemVZB2() {
 		return ItemVZB2;
 	}
@@ -112,7 +112,7 @@ public class Item {
 		ItemVZB2 = itemVZB2;
 	}
 
-	@ManyToOne(targetEntity=Rarity.class)
+	@ManyToOne(targetEntity = Rarity.class)
 	public org.GW2Mon.pojo.Rarity getRarity() {
 		return Rarity;
 	}
@@ -396,7 +396,7 @@ public class Item {
 		InfusionSlot = infusionSlot;
 	}
 
-	@ManyToOne(targetEntity=Attribute.class)
+	@ManyToOne(targetEntity = Attribute.class)
 	public Attribute getAttribute1Id() {
 		return Attribute1Id;
 	}
@@ -405,7 +405,7 @@ public class Item {
 		Attribute1Id = attribute1Id;
 	}
 
-	@ManyToOne(targetEntity=Attribute.class)
+	@ManyToOne(targetEntity = Attribute.class)
 	public int getAttribute1Mod() {
 		return Attribute1Mod;
 	}
@@ -414,7 +414,7 @@ public class Item {
 		Attribute1Mod = attribute1Mod;
 	}
 
-	@ManyToOne(targetEntity=Attribute.class)
+	@ManyToOne(targetEntity = Attribute.class)
 	public Attribute getAttribute2Id() {
 		return Attribute2Id;
 	}
@@ -431,7 +431,7 @@ public class Item {
 		Attribute2Mod = attribute2Mod;
 	}
 
-	@ManyToOne(targetEntity=Attribute.class)
+	@ManyToOne(targetEntity = Attribute.class)
 	public Attribute getAttribute3Id() {
 		return Attribute3Id;
 	}

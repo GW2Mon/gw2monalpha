@@ -15,8 +15,9 @@ public class Recipe {
 			ItemId;
 	private String NameGer, NameEng;
 
-	public Recipe(int id, String nameGer, String nameEng, CraftingDiscipline craftDisc1,
-			CraftingDiscipline craftDisc2, CraftingDiscipline craftDisc3, Item ingredient1Id,
+	public Recipe(int id, String nameGer, String nameEng,
+			CraftingDiscipline craftDisc1, CraftingDiscipline craftDisc2,
+			CraftingDiscipline craftDisc3, Item ingredient1Id,
 			int ingredient1Amount, Item ingredient2Id, int ingredient2Amount,
 			Item ingredient3Id, int ingredient3Amount, Item ingredient4Id,
 			int ingredient4Amount, Item itemId, int itemAmount, int rating,
@@ -50,7 +51,7 @@ public class Recipe {
 		Id = id;
 	}
 
-	@ManyToOne(targetEntity=CraftingDiscipline.class)
+	@ManyToOne(targetEntity = CraftingDiscipline.class)
 	public CraftingDiscipline getCraftDisc1() {
 		return CraftDisc1;
 	}
@@ -59,7 +60,7 @@ public class Recipe {
 		CraftDisc1 = craftDisc1;
 	}
 
-	@ManyToOne(targetEntity=CraftingDiscipline.class)
+	@ManyToOne(targetEntity = CraftingDiscipline.class)
 	public CraftingDiscipline getCraftDisc2() {
 		return CraftDisc2;
 	}
@@ -68,7 +69,7 @@ public class Recipe {
 		CraftDisc2 = craftDisc2;
 	}
 
-	@ManyToOne(targetEntity=CraftingDiscipline.class)
+	@ManyToOne(targetEntity = CraftingDiscipline.class)
 	public CraftingDiscipline getCraftDisc3() {
 		return CraftDisc3;
 	}
@@ -77,7 +78,7 @@ public class Recipe {
 		CraftDisc3 = craftDisc3;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getIngredient1Id() {
 		return Ingredient1Id;
 	}
@@ -86,7 +87,7 @@ public class Recipe {
 		Ingredient1Id = ingredient1Id;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getIngredient2Id() {
 		return Ingredient2Id;
 	}
@@ -95,7 +96,7 @@ public class Recipe {
 		Ingredient2Id = ingredient2Id;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getIngredient3Id() {
 		return Ingredient3Id;
 	}
@@ -104,7 +105,7 @@ public class Recipe {
 		Ingredient3Id = ingredient3Id2;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getIngredient4Id() {
 		return Ingredient4Id;
 	}
@@ -113,7 +114,7 @@ public class Recipe {
 		Ingredient4Id = ingredient4Id2;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public Item getItemId() {
 		return ItemId;
 	}
@@ -131,7 +132,7 @@ public class Recipe {
 		ApiId = apiId;
 	}
 
-	@ManyToOne(targetEntity=Item.class)
+	@ManyToOne(targetEntity = Item.class)
 	public int getItemAmount() {
 		return ItemAmount;
 	}

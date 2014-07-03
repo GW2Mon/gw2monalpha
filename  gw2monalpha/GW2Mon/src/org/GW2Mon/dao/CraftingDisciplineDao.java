@@ -2,7 +2,7 @@ package org.GW2Mon.dao;
 
 import java.util.ArrayList;
 
-import org.GW2Mon.model.DB;
+import org.GW2Mon.function.DB;
 import org.GW2Mon.pojo.CraftingDiscipline;
 import org.hibernate.Transaction;
 
@@ -10,30 +10,35 @@ public class CraftingDisciplineDao {
 
 	/**
 	 * Returns CraftingDiscipline with Id id.
+	 * 
 	 * @param id
 	 * @return CraftingDiscipline
 	 */
-	public CraftingDiscipline getCraftingDiscipline(int id){
+	public CraftingDiscipline getCraftingDiscipline(int id) {
 		CraftingDiscipline craftDisc = null;
 		DB db = new DB();
-		craftDisc=(CraftingDiscipline) db.session.get(CraftingDiscipline.class, id);
+		craftDisc = (CraftingDiscipline) db.session.get(
+				CraftingDiscipline.class, id);
 		return craftDisc;
 	}
-	
+
 	/**
 	 * Returns all CraftingDisciplines.
+	 * 
 	 * @return ArrayList< CraftingDiscipline>
 	 */
 	@SuppressWarnings("unchecked")
-	public ArrayList<CraftingDiscipline> getCraftingDisciplines(){
-		ArrayList<CraftingDiscipline> arrayList=null;
-		DB db=new DB();
-		arrayList=(ArrayList<CraftingDiscipline>) db.session.createQuery("from "+CraftingDiscipline.class).list();
+	public ArrayList<CraftingDiscipline> getCraftingDisciplines() {
+		ArrayList<CraftingDiscipline> arrayList = null;
+		DB db = new DB();
+		arrayList = (ArrayList<CraftingDiscipline>) db.session.createQuery(
+				"from " + CraftingDiscipline.class).list();
 		return arrayList;
 	}
-	
+
 	/**
 	 * Sets CraftingDiscipline param.
+	 * 
 	 * @param craftingDiscipline
 	 */
 	public void setCraftingDiscipline(CraftingDiscipline param) {
@@ -50,6 +55,7 @@ public class CraftingDisciplineDao {
 
 	/**
 	 * Sets all CraftingDisciplines in ArrayList arrayList.
+	 * 
 	 * @param arryList
 	 */
 	public void setCraftingDisciplines(ArrayList<CraftingDiscipline> arryList) {
@@ -64,5 +70,5 @@ public class CraftingDisciplineDao {
 			trans.rollback();
 		}
 	}
-	
+
 }

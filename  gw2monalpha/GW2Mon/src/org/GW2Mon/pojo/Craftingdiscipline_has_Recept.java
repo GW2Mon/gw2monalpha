@@ -10,13 +10,14 @@ public class Craftingdiscipline_has_Recept {
 	private CraftingDiscipline Craftingdiscipline;
 	private Recipe Recept;
 
-	public Craftingdiscipline_has_Recept(CraftingDiscipline craftdisc,Recipe recept) {
+	public Craftingdiscipline_has_Recept(CraftingDiscipline craftdisc,
+			Recipe recept) {
 		this.setCraftingdiscipline(craftdisc);
 		this.setRecept(recept);
 	}
 
 	@Id
-	@ManyToOne(targetEntity=CraftingDiscipline.class)
+	@ManyToOne(targetEntity = CraftingDiscipline.class)
 	public CraftingDiscipline getCraftingdiscipline() {
 		return Craftingdiscipline;
 	}
@@ -26,7 +27,7 @@ public class Craftingdiscipline_has_Recept {
 	}
 
 	@Id
-	@ManyToOne(targetEntity=Recipe.class)
+	@ManyToOne(targetEntity = Recipe.class)
 	public Recipe getRecept() {
 		return Recept;
 	}

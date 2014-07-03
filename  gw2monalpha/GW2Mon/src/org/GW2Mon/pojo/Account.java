@@ -95,7 +95,7 @@ public class Account extends Object {
 	 * @return Treasury
 	 */
 	@OneToOne(targetEntity = Treasury.class)
-	@JoinColumn(name="Treasury")
+	@JoinColumn(name = "Treasury")
 	public Treasury getTreasury() {
 		return Treasury;
 	}

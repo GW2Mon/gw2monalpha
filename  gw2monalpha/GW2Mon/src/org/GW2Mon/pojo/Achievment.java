@@ -12,9 +12,9 @@ public class Achievment {
 	private AchievCat1 Achievcat1;
 	private String NameGer, NameEng, TitelGer, TitelEng, DescGer, DescEng;
 
-	public Achievment(int id, AchievCat achievcat, AchievCat1 achievcat1, int points,
-			int percharakter, String nameGer, String NameEng, String descGer,
-			String descEng, String titelGer, String titelEng) {
+	public Achievment(int id, AchievCat achievcat, AchievCat1 achievcat1,
+			int points, int percharakter, String nameGer, String NameEng,
+			String descGer, String descEng, String titelGer, String titelEng) {
 		this.setId(id);
 		this.setAchievcat(achievcat);
 		this.setAchievcat1(achievcat1);
@@ -37,7 +37,7 @@ public class Achievment {
 		Id = id;
 	}
 
-	@ManyToOne(targetEntity=AchievCat.class)
+	@ManyToOne(targetEntity = AchievCat.class)
 	public AchievCat getAchievcat() {
 		return Achievcat;
 	}
@@ -46,7 +46,7 @@ public class Achievment {
 		Achievcat = achievcat;
 	}
 
-	@ManyToOne(targetEntity=AchievCat1.class)
+	@ManyToOne(targetEntity = AchievCat1.class)
 	public AchievCat1 getAchievcat1() {
 		return Achievcat1;
 	}
@@ -55,7 +55,6 @@ public class Achievment {
 		Achievcat1 = achievcat1;
 	}
 
-	
 	public int getPoints() {
 		return Points;
 	}

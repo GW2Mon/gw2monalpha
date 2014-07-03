@@ -1,14 +1,16 @@
 package org.GW2Mon.model;
+
 import java.awt.BorderLayout;
 import java.awt.Font;
 
 import javax.swing.JDialog;
-//import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
+
+//import javax.swing.JFrame;
 
 public class Splashscreen extends JDialog {
 
@@ -44,7 +46,7 @@ public class Splashscreen extends JDialog {
 		setName("Splashscreen");
 		progressBar = new JProgressBar();
 		progressBar.setBounds(10, 246, 422, 16);
-		int rowCount=0;
+		int rowCount = 0;
 		progressBar.setMaximum(rowCount + 100);
 		getContentPane().add(progressBar);
 
