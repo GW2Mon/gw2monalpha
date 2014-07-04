@@ -44,8 +44,9 @@ public class GW2MonFunction {
 			lAccounts.addElement(accounts.next().getName());
 			logger.info("Accounts loaded.");
 		}
-		Iterator<Charakter> charakters = charService.loadCharakters().iterator();
-		while (charakters.hasNext()){
+		Iterator<Charakter> charakters = charService.loadCharakters()
+				.iterator();
+		while (charakters.hasNext()) {
 			lCharakters.addElement(charakters.next().getName());
 			logger.info("Charakters loaded.");
 		}
@@ -61,19 +62,26 @@ public class GW2MonFunction {
 	public Account lAccountClicked(JList<String> lAccounts) {
 		Account account = null;
 		account = accService.loadAccount(lAccounts.getSelectedIndex() + 1);
-		Iterator<Charakter> charakters = charService.loadCharakters(account).iterator();
-		while (charakters.hasNext()) {
-			GW2Mon.CharList.clear();
-			GW2Mon.CharList.addElement(charakters.next().getName());
-		}
+			Iterator<Charakter> charakters = charService
+					.loadCharakters(account).iterator();
+			while (charakters.hasNext()) {
+				GW2Mon.CharList.clear();
+				GW2Mon.CharList.addElement(charakters.next().getName());
+			}
+
+			GW2Mon.tpMain.setSelectedComponent(GW2Mon.pCharakters);
+		
 
 		return account;
 	}
 
 	public Charakter lCharakterClicked(JList<String> lCharakter) {
 		Charakter Char = null;
-		Char = charService.loadCharakter(lCharakter.getSelectedIndex()+1);
-		GW2Mon.tpMain.addTab(Char.getName(),new Charakter(Char));
+		Char = charService.loadCharakter(lCharakter.getSelectedIndex() + 1);
+		String TabName = Char.getName().substring(0, 8) + "..";
+		GW2Mon.tpMain.addTab(TabName,
+				org.GW2Mon.model.Charakter.getInstance(Char));
+		GW2Mon.tpMain.setSelectedIndex(2);
 		return Char;
 	}
 
