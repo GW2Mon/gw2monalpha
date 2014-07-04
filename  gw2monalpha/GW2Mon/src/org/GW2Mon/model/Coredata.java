@@ -16,7 +16,10 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
+import org.GW2Mon.function.CoredataFunction;
 import org.GW2Mon.pojo.Item;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
 
 /**
  * @author Gw2Mon[at]gmail.com
@@ -29,18 +32,19 @@ public class Coredata extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Coredata instance = null;
-	private JTabbedPane tabbedPane;
-	private JPanel contentPane, pMenue, pRace, pProfession, pTrait, pSkill,
+	public static JTabbedPane tabbedPane;
+	public static JPanel contentPane, pMenue, pRace, pProfession, pTrait, pSkill,
 			pCraftingDiscipline, pItem, pAchievment, pBoonCondition, pRecept;
 	private JTextField txtRaceNameGer, txtRaceNameEng, txtReceptNameGer,
 			txtReceptNameEng, txtProNameGer, txtProNameEng, txtTraitNameGer,
 			txtTraitNameEng, txtSkillNameGer, txtSkillNameEng, txtItemNameGer,
 			txtItemNameEng, txtBCNameGer, txtBCNameEng, txtCraftDiscNameGer,
 			txtCraftDiscNameEng, txtAchievNameGer, txtAchievNameEng;
-	private JComboBox<String> cbRace, cbRaceCapital, cbProfession, cbTrait,
+	public static JComboBox<String> cbRace, cbRaceCapital, cbProfession, cbTrait,
 			cbSkill, cbRecept, cbCraftingDiscipline, cbBoonCondition,
 			cbAchievment, cbProfTyp, cbProfTrait1, cbProfTrait2, cbProfTrait3;
 	public static Item SelectedItem;
+	private CoredataFunction coreFunction = new CoredataFunction();
 
 	public Coredata() {
 		instance = this;
@@ -53,14 +57,7 @@ public class Coredata extends JFrame {
 		btnNeu.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				if (tabbedPane.getSelectedComponent() == pRace) {
-				}
-				if (tabbedPane.getSelectedComponent() == pProfession) {
-				}
-				if (tabbedPane.getSelectedComponent() == pTrait) {
-				}
-				if (tabbedPane.getSelectedComponent() == pSkill) {
-				}
+				coreFunction.BtnNew();
 			}
 		});
 		btnNeu.setBounds(5, 259, 53, 23);
@@ -187,6 +184,11 @@ public class Coredata extends JFrame {
 
 		contentPane = new JPanel();
 		tabbedPane = new JTabbedPane();
+		tabbedPane.addPropertyChangeListener(new PropertyChangeListener() {
+			public void propertyChange(PropertyChangeEvent arg0) {
+				coreFunction.SiteChanged(tabbedPane);
+			}
+		});
 		tabbedPane.setBounds(5, 5, 409, 250);
 		pMenue = new JPanel();
 		pMenue.setName("pMenue");

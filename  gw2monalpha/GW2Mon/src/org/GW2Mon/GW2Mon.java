@@ -28,6 +28,7 @@ import org.GW2Mon.model.Options;
 import org.GW2Mon.model.Splashscreen;
 import org.GW2Mon.pojo.Account;
 import org.GW2Mon.pojo.Charakter;
+import javax.swing.JPasswordField;
 
 /**
  * @author Gw2Mon[at]gmail.com
@@ -47,6 +48,7 @@ public class GW2Mon {
 	private static GW2MonFunction function = new GW2MonFunction();
 	public static DefaultListModel<String> CharList = null;
 	public static JTabbedPane tpMain = new JTabbedPane(SwingConstants.TOP);
+	public final static JPanel pCharakters=null;
 
 	/**
 	 * Launch the application.
@@ -187,13 +189,12 @@ public class GW2Mon {
 		final JList<String> lAccounts = new JList<String>(AccList);
 		lAccounts.setBounds(10, 11, 125, 390);
 		pAccounts.add(lAccounts);
-
+		
 		lAccounts.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if (arg0.getClickCount() > 1) {
 					account = function.lAccountClicked(lAccounts);
-					tpMain.setSelectedComponent(pCharakters);
 				}
 			}
 		});
@@ -206,6 +207,7 @@ public class GW2Mon {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				if (arg0.getClickCount()>1)
 				charakter = function.lCharakterClicked(lCharakters);
 			}
 		});
