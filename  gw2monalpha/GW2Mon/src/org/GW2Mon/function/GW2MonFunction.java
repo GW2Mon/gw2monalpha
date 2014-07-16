@@ -69,7 +69,7 @@ public class GW2MonFunction {
 				GW2Mon.CharList.addElement(charakters.next().getName());
 			}
 
-			GW2Mon.tpMain.setSelectedComponent(GW2Mon.pCharakters);
+			GW2Mon.tpMain.setSelectedIndex(1);
 		
 
 		return account;
