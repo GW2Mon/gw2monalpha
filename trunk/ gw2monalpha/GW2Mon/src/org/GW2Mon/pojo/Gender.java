@@ -1,5 +1,6 @@
 package org.GW2Mon.pojo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -7,7 +8,8 @@ import javax.persistence.Id;
 public class Gender {
 
 	private int Id;
-	private String NameGer, NameEng;
+	private String NameGer;
+	private String NameEng;
 
 	public Gender(int id, String nameGer, String nameEng) {
 		this.setId(id);
@@ -27,6 +29,7 @@ public class Gender {
 		this.Id = id;
 	}
 
+	@Column(nullable = false)
 	public String getNameEng() {
 		return NameEng;
 	}
@@ -35,6 +38,7 @@ public class Gender {
 		NameEng = nameEng;
 	}
 
+	@Column(nullable = false)
 	public String getNameGer() {
 		return NameGer;
 	}

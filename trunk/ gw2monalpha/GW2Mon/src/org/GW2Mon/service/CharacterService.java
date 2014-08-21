@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import org.GW2Mon.dao.CharakterDao;
 import org.GW2Mon.pojo.Account;
 import org.GW2Mon.pojo.Charakter;
+import org.GW2Mon.pojo.Gender;
+import org.GW2Mon.pojo.Profession;
+import org.GW2Mon.pojo.Race;
 
 /**
  * @author GW2Mon[at]gmail.com
@@ -75,5 +78,15 @@ public class CharacterService {
 	 */
 	public ArrayList<Charakter> loadCharakters(Account Acc) {
 		return CharDao.getCharakters(Acc);
+	}
+
+	/**
+	 * Creates a new instance of {@link Charakter}.
+	 */
+	public Charakter newCharakter(Account account, String name, Gender gender,
+			Profession profession, Race race, int level) {
+		Charakter charakter = new Charakter(0, account, name, level, null,
+				null, 0, 0, gender, race, profession, null);
+		return charakter;
 	}
 }
