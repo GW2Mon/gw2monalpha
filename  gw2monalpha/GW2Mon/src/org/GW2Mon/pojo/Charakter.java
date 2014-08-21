@@ -18,7 +18,8 @@ public class Charakter {
 	private Gender Gender;
 	private Race Race;
 	private Profession Profession;
-	private String Name, Image;
+	private String Name;
+	private String Image;
 
 	public Charakter(int id, Account account, String name, int level,
 			CraftingDiscipline craftdisc1, CraftingDiscipline craftdisc2,
@@ -122,7 +123,7 @@ public class Charakter {
 		Supply = supply;
 	}
 
-	@ManyToOne(targetEntity = CraftingDiscipline.class)
+	@ManyToOne(targetEntity = CraftingDiscipline.class, optional = true)
 	@JoinColumn(name = "CraftDisc2")
 	public CraftingDiscipline getCraftDisc2() {
 		return CraftDisc2;
@@ -142,7 +143,7 @@ public class Charakter {
 		Race = race;
 	}
 
-	@ManyToOne(targetEntity = CraftingDiscipline.class)
+	@ManyToOne(targetEntity = CraftingDiscipline.class, optional = true)
 	@JoinColumn(name = "CraftDisc1")
 	public CraftingDiscipline getCraftDisc1() {
 		return CraftDisc1;

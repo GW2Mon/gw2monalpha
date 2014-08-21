@@ -28,7 +28,6 @@ import org.GW2Mon.model.Options;
 import org.GW2Mon.model.Splashscreen;
 import org.GW2Mon.pojo.Account;
 import org.GW2Mon.pojo.Charakter;
-import javax.swing.JPasswordField;
 
 /**
  * @author Gw2Mon[at]gmail.com
