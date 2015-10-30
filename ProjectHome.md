@@ -1,0 +1,1 @@
+This tool is for calculating Damage, ressources and armor calculating in the Game Guild Wars 2 by ArenaNet
