@@ -12,6 +12,10 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Account{
+	
+	/**
+	 * class variables
+	 */
 	private int Id, CountChar;
 	private Treasury Treasury;
 	private String Name, EMail, PW, IgPW;

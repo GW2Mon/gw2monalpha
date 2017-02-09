@@ -10,7 +10,7 @@ public class AccountService {
 	private AccountDao AccDao = new AccountDao();
 
 	/**
-	 * Saves the Account with Id or Name Acc corresponding on Type of Acc.
+	 * Saves the Account with Id or Name "Acc" corresponding on Type of "Acc".
 	 * 
 	 * @param Acc
 	 */

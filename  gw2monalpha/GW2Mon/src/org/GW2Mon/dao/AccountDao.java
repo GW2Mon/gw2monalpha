@@ -10,7 +10,7 @@ import org.hibernate.Transaction;
 public class AccountDao {
 
 	/**
-	 * Returns Account with ID or Name Acc corresponding on Type of Acc
+	 * Returns Account with ID or Name "Acc" corresponding on Type of "Acc"
 	 * 
 	 * @param Acc
 	 * @return Account
@@ -34,7 +34,7 @@ public class AccountDao {
 	/**
 	 * Returns all Accounts.
 	 * 
-	 * @return ArrayList< Account>
+	 * @return ArrayList<Account>
 	 */
 	@SuppressWarnings("unchecked")
 	public ArrayList<Account> getAccounts() {
@@ -67,7 +67,7 @@ public class AccountDao {
 	}
 
 	/**
-	 * Sets all Accounts in ArrayList arrayList to the database.
+	 * Sets all Accounts in ArrayList "arrayList" to the database.
 	 * 
 	 * @param arrayList
 	 */
